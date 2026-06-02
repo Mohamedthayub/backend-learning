@@ -6,3 +6,4 @@ console.log("CPU information : " + os.cpus().length);
 console.log("Free Memory :" + Math.round(os.totalmem() / 1024 ** 3), "GB"); 
 console.log("Total Memory :" + Math.round(os.freemem() / 1024 ** 3), "GB"); 
 console.log("Home Directory : "+os.homedir());
+console.log("UpTime of The System:" + os.uptime() + "Seconds");
