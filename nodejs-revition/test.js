@@ -14,4 +14,4 @@ console.log("The code Starts from here");
 for(let i = 0; i<100; i++){
     console.log("This is i :" + i );
 }
-console.log("This is the End of the code");
+console.log("This is the End of the code")
