@@ -1,0 +1,37 @@
+Core Concepts
+Variables (let, const)
+Data Types
+Operators
+Functions
+Arrow Functions
+Scope
+Hoisting
+Closures
+Objects
+Arrays
+Array Methods
+map
+filter
+reduce
+find
+some
+every
+Destructuring
+Spread & Rest Operators
+Template Literals
+Optional Chaining
+Modules (import/export)
+Asynchronous JavaScript
+Callbacks
+Promises
+Promise Chaining
+Async/Await
+Fetch API
+Event Loop
+Call Stack
+Microtask Queue
+Macrotask Queue
+Projects
+Task Manager (CLI)
+Expense Tracker
+Weather App (API based)
