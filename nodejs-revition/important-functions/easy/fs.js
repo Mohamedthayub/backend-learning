@@ -34,9 +34,9 @@ fs.appendFile('information.txt',"this text is for appending",(err) => {
 // deleting the file from the folder;
 
 
-    fs.unlink('./test.js',(err) => {
-        if(err){
-            throw err;
-        }
-        console.log("File deleted Succesfully");
-    });
+fs.unlink('./test.js',(err) => {
+    if(err){
+        throw err;
+    }
+    console.log("File deleted Succesfully");
+});
