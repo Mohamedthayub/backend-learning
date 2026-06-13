@@ -43,8 +43,9 @@ else if (command  == "list"){
     const notes = readNotes();
     notes.forEach((note,index) => {
         console.log(`${index + 1}. ${note}`);
-    })
+    });
 }
+
 else{
     console.log("Invalid command");
 }
