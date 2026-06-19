@@ -45,9 +45,9 @@ if(command == "add"){
 
 else if (command == 'delete'){
     const notes = readNotes();
-    const filteredNotes = notes.filter((nt) => nt != note);
+    const filteredNotes = notes.filter((nt) => nt.id != id);
     saveNotes(filteredNotes);
-    console.log("Note deleted ....");
+    console.log("✓ Note deleted successfully.");
 }
 
 else if (command  == "list"){
@@ -58,12 +58,20 @@ else if (command  == "list"){
         console.log(`${column_number}. ${note.title}`);
     }
 }
+else if(command === "delete-all"){
+    saveNotes([]);
+    console.log("✓ Notes all deleted successfully.");
+
+}
 else if (command == "read"){
     const notes = readNotes();
     const filteredNote = notes.filter((note) => note.id ==  id);
     console.log(filteredNote);
 }
-
+else if (command == "count"){
+    const notes = readNotes();
+    console.log("The notes total count is : " + notes.length);
+}
 else{
     console.log("Invalid command");
 }
