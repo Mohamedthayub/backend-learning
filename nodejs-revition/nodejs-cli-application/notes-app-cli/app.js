@@ -5,18 +5,10 @@ const path = require('path');
 const filePath = path.join(__dirname , "notes.json");
 
 const command = process.argv[2];
+const id = process.argv[3]
 const tittle =  process.argv[3];
 const content = process.argv[4];
 const tags = process.argv[5];
-
-const obj = {
-    "id": 1,
-    "title": "Learn Node",
-    "content": "Understand EventEmitter",
-    "tags": ["backend", "nodejs"],
-    "archived": true
-}
-
 
 const readNotes = () => {
     try{
@@ -46,9 +38,7 @@ if(command == "add"){
         "archeived":false
         
     }
-    console.log(note);
-    const notes = readNotes();
-    notes.push(note);
+    console.log(note);         
     saveNotes(notes);
     console.log("✓ Note added successfully.");
 }
@@ -62,14 +52,16 @@ else if (command == 'delete'){
 
 else if (command  == "list"){
     const notes = readNotes();
-    let index = 0;
+    let column_number = 0;
     for(let  note of notes){
-        index++;
-        console.log(`${index}. ${note.title}`);
+        column_number++;
+        console.log(`${column_number}. ${note.title}`);
     }
-    // notes.forEach((note,index) => {
-    //     console.log(`${index} ${note}`)
-    // })
+}
+else if (command == "read"){
+    const notes = readNotes();
+    const filteredNote = notes.filter((note) => note.id ==  id);
+    console.log(filteredNote);
 }
 
 else{
