@@ -1,4 +1,3 @@
-const { create } = require('domain');
 const fs = require('fs');
 const path = require('path');
 
@@ -52,16 +51,41 @@ else if (command == 'delete'){
 
 else if (command  == "list"){
     const notes = readNotes();
+    if(notes.length == 0){
+        console.log("No notes are available. !");
+    }
     let column_number = 0;
     for(let  note of notes){
         column_number++;
         console.log(`${column_number}. ${note.title}`);
     }
 }
+
 else if(command === "delete-all"){
     saveNotes([]);
     console.log("✓ Notes all deleted successfully.");
 
+}
+
+else if (command == "archive"){
+    const notes = readNotes();
+    const archivedNotes = notes.map((nt) => {
+        if(nt.id == id && nt.archeived == false){
+            nt.archeived = true;
+        }
+        return nt;
+    })
+    saveNotes(archivedNotes);
+    console.log("✓ Note archived successfully.");
+}
+
+else if (command == "archived"){
+    const notes = readNotes();    console.log("archived notes :")
+    notes.forEach((note) => {
+        if(note.archeived == true){
+            console.log(`${note.id}. ${note.title}` );
+        }
+    })
 }
 else if (command == "read"){
     const notes = readNotes();
@@ -72,6 +96,7 @@ else if (command == "count"){
     const notes = readNotes();
     console.log("The notes total count is : " + notes.length);
 }
+
 else{
     console.log("Invalid command");
 }
