@@ -63,11 +63,6 @@ else if (command  == "list"){
     }
 }
 
-else if(command === "delete-all"){
-    saveNotes([]);
-    console.log("✓ Notes all deleted successfully.");
-
-}
 
 else if (command == "archive"){
     const notes = readNotes();
