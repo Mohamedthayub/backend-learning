@@ -28,16 +28,18 @@ const saveNotes = (notes) => {
 }
 
 if(command == "add"){
-    const index = readNotes();
+    const notes = readNotes();
+    
     const note = {
-        "id":index.length + 1,
+        "id":notes.length + 1,
         "title" :tittle,
         "content":content,
         "tags":tags,
         "archeived":false
         
     }
-    console.log(note);         
+    console.log(note);      
+    notes.push(note);   
     saveNotes(notes);
     console.log("✓ Note added successfully.");
 }
