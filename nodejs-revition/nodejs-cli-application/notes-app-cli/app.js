@@ -63,6 +63,11 @@ else if (command  == "list"){
     }
 }
 
+else if (command == "update"){
+    const notes = readNotes();
+    
+}
+
 else if (command == "stats"){
     const notes = readNotes();
     
@@ -93,8 +98,8 @@ else if (command == "stats"){
 else if (command == "archive"){
     const notes = readNotes();
     const archivedNotes = notes.map((nt) => {
-        if(nt.id == id && nt.archeived == false){
-            nt.archeived = true;
+        if(nt.id == id && nt.archived == false){
+            nt.archived = true;
         }
         return nt;
     })
