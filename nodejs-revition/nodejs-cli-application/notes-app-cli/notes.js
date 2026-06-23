@@ -72,6 +72,3 @@ const notes = [
         archived: true
     }
 ];
-
-
-

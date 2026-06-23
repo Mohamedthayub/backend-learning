@@ -101,6 +101,17 @@ else if (command == "archive"){
     saveNotes(archivedNotes);
     console.log("✓ Note archived successfully.");
 }
+else if(command == "unarchive"){
+    const notes = readNotes();
+    const unarchivedNotes = notes.map((nt) => {
+        if(nt.id == id && nt.archived == true){
+            nt.archived = false;
+        }
+        return nt;
+    });
+    saveNotes(unarchivedNotes);
+    console.log("✓ Note unarchived successfully.");
+}
 
 else if (command == "archived"){
     const notes = readNotes();   
@@ -111,6 +122,8 @@ else if (command == "archived"){
         }
     })
 }
+
+
 else if (command == "read"){
     const notes = readNotes();
     const filteredNote = notes.filter((note) => note.id ==  id);
