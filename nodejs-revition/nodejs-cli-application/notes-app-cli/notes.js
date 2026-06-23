@@ -1,3 +1,5 @@
+const { act } = require("react");
+
 const notes = [
     {
         id: 1,
@@ -72,12 +74,4 @@ const notes = [
 ];
 
 
-let id = 8;
 
-const archivedNotes  = notes.map((nt) => {
-    if(nt.id == id && nt.archived ==  false){
-        nt.archived = true;
-    }
-    return nt;
-});
-console.log(archivedNotes);

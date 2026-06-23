@@ -63,7 +63,33 @@ else if (command  == "list"){
     }
 }
 
+else if (command == "stats"){
+    const notes = readNotes();
+    
+    const tagCount = notes.reduce((acc,curr) => {
+         return acc + curr.tags.length;
+    },0);
 
+    const activeNotes = notes.reduce((acc,curr) => {
+    if(curr.archived == false){
+        acc++
+    }
+       return acc;
+   },0);
+    const archivedNotes = notes.reduce((acc,curr) => {
+
+    if(curr.archived == true){
+        acc++
+    }
+    return acc;
+    },0);
+
+    console.log(`Total Notes :  ${notes.length}`);
+    console.log(`Active Notes :  ${activeNotes}` );
+    console.log(`Archived Notes : ${archivedNotes}`);
+    console.log(`Tags Used :  ${tagCount}`);
+
+}
 else if (command == "archive"){
     const notes = readNotes();
     const archivedNotes = notes.map((nt) => {
@@ -77,9 +103,10 @@ else if (command == "archive"){
 }
 
 else if (command == "archived"){
-    const notes = readNotes();    console.log("archived notes :")
+    const notes = readNotes();   
+    console.log("archived notes :")
     notes.forEach((note) => {
-        if(note.archeived == true){
+        if(note.archived == true){
             console.log(`${note.id}. ${note.title}` );
         }
     })
