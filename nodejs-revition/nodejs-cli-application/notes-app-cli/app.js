@@ -81,13 +81,13 @@ else if (command == "stats"){
     if(curr.archived == true){
         acc++
     }
-    return acc;
+       return acc;
     },0);
 
-    console.log(`Total Notes :  ${notes.length}`);
-    console.log(`Active Notes :  ${activeNotes}` );
+    console.log(`Total Notes    : ${notes.length}`);
+    console.log(`Active Notes   : ${activeNotes}` );
     console.log(`Archived Notes : ${archivedNotes}`);
-    console.log(`Tags Used :  ${tagCount}`);
+    console.log(`Tags Used      : ${tagCount}`);
 
 }
 else if (command == "archive"){
@@ -115,10 +115,6 @@ else if (command == "read"){
     const notes = readNotes();
     const filteredNote = notes.filter((note) => note.id ==  id);
     console.log(filteredNote);
-}
-else if (command == "count"){
-    const notes = readNotes();
-    console.log("The notes total count is : " + notes.length);
 }
 
 else{
