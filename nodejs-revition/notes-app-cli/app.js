@@ -5,7 +5,7 @@ const filePath = path.join(__dirname , "notes.json");
 
 const command = process.argv[2];
 const id = process.argv[3]
-const tittle =  process.argv[3];
+const title =  process.argv[3];
 const content = process.argv[4];
 const tags = process.argv[5];
 
@@ -32,10 +32,10 @@ if(command == "add"){
     
     const note = {
         "id":notes.length + 1,
-        "title" :tittle,
+        "title" :title,
         "content":content,
-        "tags":tags,
-        "archeived":false
+        "tags":tags.split(","),
+        "archived":false
         
     }
     console.log(note);      
@@ -61,11 +61,6 @@ else if (command  == "list"){
         column_number++;
         console.log(`${column_number}. ${note.title}`);
     }
-}
-
-else if (command == "update"){
-    const notes = readNotes();
-    
 }
 
 else if (command == "stats"){
