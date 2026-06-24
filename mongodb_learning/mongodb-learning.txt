@@ -1,0 +1,50 @@
+show dbs -> show the existing databases
+use (databaseName)  -> switch the one another databasesh
+db.createCollection -> db.createCollection() is a MongoDB method used to explicitly create a new collection 
+db.dropDatabase -> db.dropDatabase() is a MongoDB method used to delete the current database completely. It removes the database itself along with all collections and all documents inside it.
+show collections -> this command is use to show the existing  collectiom
+db.collectionName.drop() -> this command is use to delete the  collection
+db.collectionName.find() -> this method is use find the all Users
+db.collectionName.insertOne({name:"thayub",age:20,gpa:3.2}) ->  this is how we insert the data into the collection 
+cls -> we use this command to clear all data
+
+
+data types in mongodb 
+---------------------
+name: 'vajiha',
+    age: 2,  integer
+    gpa: 2.5,  float
+    fulltime: false, boolean
+    registerData: ISODate('2026-06-24T17:48:18.020Z'), date
+    graduationDate: null, no values
+    courses: [ 'Biology', 'Chemistry', 'Calculus' ], array
+    address: {
+      street: '42a/5 South Thaikka Street',
+      city: 'tirunelveli', objects 
+      pincode: '627005' string 
+    }
+
+
+-- sorting
+
+db.practice.find().sort({gpa:1}) -- sort the data in  ascending order
+
+db.practice.find().sort({gpa:-1}) -- sort the data in descending order 
+
+
+-- limiting 
+
+db.practice.find().limit(2)  - we limit the only 2 document show 
+
+db.practice.find().sort({gpa:-1}).limit(1) - find the  highest gpa 
+
+db.practice.find().sort({gpa:1}).limit(1) - find the lowest gpa 
+
+
+-- filtering the documents with find method 
+
+db.practice.find({name:'mohideen'}) -- filter the document  with the name 
+
+db.practice.find({gpa:4}) -- filter the document with gpa 
+
+db.practice.find({fulltime:false}) -- filter if the student fulltime is false

@@ -1,0 +1,223 @@
+# How to Use `find()` in MongoDB
+
+The `find()` method is used to retrieve documents from a collection. It is equivalent to SQL's `SELECT` statement.
+
+## Syntax
+
+```javascript
+db.collectionName.find(query, projection)
+```
+
+* **query** (optional): Specifies which documents to return.
+* **projection** (optional): Specifies which fields to include or exclude.
+
+---
+
+## Retrieve All Documents
+
+Suppose the `users` collection contains:
+
+```javascript
+db.users.insertMany([
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 30 },
+  { name: "Charlie", age: 35 }
+]);
+```
+
+Retrieve all documents:
+
+```javascript
+db.users.find()
+```
+
+Output:
+
+```json
+{ "_id": ObjectId(...), "name": "Alice", "age": 25 }
+{ "_id": ObjectId(...), "name": "Bob", "age": 30 }
+{ "_id": ObjectId(...), "name": "Charlie", "age": 35 }
+```
+
+### SQL Equivalent
+
+```sql
+SELECT * FROM users;
+```
+
+---
+
+## Find Documents Matching a Condition
+
+Find users whose age is 30:
+
+```javascript
+db.users.find({
+  age: 30
+})
+```
+
+### SQL Equivalent
+
+```sql
+SELECT * FROM users
+WHERE age = 30;
+```
+
+---
+
+## Use Comparison Operators
+
+Find users older than 25:
+
+```javascript
+db.users.find({
+  age: { $gt: 25 }
+})
+```
+
+### SQL Equivalent
+
+```sql
+SELECT * FROM users
+WHERE age > 25;
+```
+
+Common operators:
+
+* `$gt` : Greater than
+* `$gte`: Greater than or equal to
+* `$lt` : Less than
+* `$lte`: Less than or equal to
+* `$ne` : Not equal
+* `$in` : Matches any value in an array
+
+Example:
+
+```javascript
+db.users.find({
+  age: { $gte: 25, $lte: 35 }
+})
+```
+
+---
+
+## Retrieve Specific Fields (Projection)
+
+Return only the `name` field:
+
+```javascript
+db.users.find(
+  {},
+  { name: 1, _id: 0 }
+)
+```
+
+Output:
+
+```json
+{ "name": "Alice" }
+{ "name": "Bob" }
+{ "name": "Charlie" }
+```
+
+### SQL Equivalent
+
+```sql
+SELECT name FROM users;
+```
+
+---
+
+## Combine with Sorting
+
+Sort by age in descending order:
+
+```javascript
+db.users.find()
+        .sort({ age: -1 })
+```
+
+### SQL Equivalent
+
+```sql
+SELECT *
+FROM users
+ORDER BY age DESC;
+```
+
+---
+
+## Combine with Limit
+
+Return only the first two documents:
+
+```javascript
+db.users.find()
+        .limit(2)
+```
+
+### SQL Equivalent
+
+```sql
+SELECT *
+FROM users
+LIMIT 2;
+```
+
+---
+
+## Combine Query, Sort, and Limit
+
+Find users older than 25, sort by age descending, and return only two documents:
+
+```javascript
+db.users.find({
+  age: { $gt: 25 }
+})
+.sort({ age: -1 })
+.limit(2)
+```
+
+### SQL Equivalent
+
+```sql
+SELECT *
+FROM users
+WHERE age > 25
+ORDER BY age DESC
+LIMIT 2;
+```
+
+---
+
+## Find a Single Document
+
+```javascript
+db.users.findOne({
+  age: 25
+})
+```
+
+### SQL Equivalent
+
+```sql
+SELECT *
+FROM users
+WHERE age = 25
+LIMIT 1;
+```
+
+## Summary
+
+| SQL                      | MongoDB                                  |
+| ------------------------ | ---------------------------------------- |
+| `SELECT * FROM users`    | `db.users.find()`                        |
+| `WHERE age = 30`         | `db.users.find({ age: 30 })`             |
+| `WHERE age > 25`         | `db.users.find({ age: { $gt: 25 } })`    |
+| `SELECT name FROM users` | `db.users.find({}, { name: 1, _id: 0 })` |
+| `ORDER BY age DESC`      | `.sort({ age: -1 })`                     |
+| `LIMIT 2`                | `.limit(2)`                              |
+| `LIMIT 1`                | `findOne()`                              |
+
+The `find()` method returns multiple documents, and it can be combined with filtering, projection, sorting, and limiting to retrieve exactly the data you need.
