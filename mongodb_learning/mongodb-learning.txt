@@ -25,6 +25,13 @@ name: 'vajiha',
     }
 
 
+--adding the data  
+
+db.practice.insertOne({name:"thayub",age:19,gpa:11,fulltime:true}) --- we add one single data 
+
+db.practice.insert({},{},{}) -- adding multiple data 
+
+
 -- sorting
 
 db.practice.find().sort({gpa:1}) -- sort the data in  ascending order
@@ -48,3 +55,33 @@ db.practice.find({name:'mohideen'}) -- filter the document  with the name
 db.practice.find({gpa:4}) -- filter the document with gpa 
 
 db.practice.find({fulltime:false}) -- filter if the student fulltime is false
+
+
+-- updating the collection 
+
+db.practice.updateOne({name:'vajiha'},{$set: {fulltime:true}}) -- update the collection 
+
+db.practice.find({_id:ObjectId('6a3c18629a12687d759df8a6')}) -- we filter the collection by _id
+
+db.practice.updateOne({_id:ObjectId('6a3eafb40a8e7452487e8e33')},{$set:{name:'Israth'}}) -- we update the data with id 
+
+-- updatemany function
+
+db.practice.updateMany({},{$set:{gpa:10}}) --  this is how we update the all documents with updateMany function 
+
+
+-- this is how we add if the field deos not exist 
+
+db.practice.updateMany({ fulltime: { $exists: false } }, { $set: { fulltime: true } })
+
+
+
+-- comparison operator
+
+db.practice.find({name:{$ne:"Mohd Thayub"}}) - Not Equal 
+
+$ne stands for not equal. It is a comparison operator used to select documents where the value of a field is not equal to a specified value
+
+db.practice.find({age:{$lt:20}}) -- find the if the age is less than 20 
+
+db.practice.find({age:{$lte:20}})
