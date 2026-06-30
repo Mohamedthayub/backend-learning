@@ -84,4 +84,12 @@ $ne stands for not equal. It is a comparison operator used to select documents w
 
 db.practice.find({age:{$lt:20}}) -- find the if the age is less than 20 
 
-db.practice.find({age:{$lte:20}})
+db.practice.find({age:{$lte:20}}) -- find the age less than equal to 20
+
+
+--- logical operator 
+
+db.students.find({$or:[{age:{$lt:20}},{gpa:{$gte:9}}]})  -- filter the age is less than 20 and gpa is greater than equal to 9 
+
+
+db.student.find({$and:[{age:{$gt:20}},{gpa:{$lt:10}}]})
