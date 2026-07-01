@@ -4,52 +4,62 @@ crud practice
 
 Now solve these without looking at notes.
 
-Insert one student.
+1. Insert one student.
 db.students.insertOne({ name: "Rahul", age: 20, department: "CSE", gpa: 8.2, fullTime: true, skills: ["JavaScript", "Node.js"], address: { city: "Chennai", state: "Tamil Nadu" } })
 --------------------------------------------------
-Insert five students at once.
+2. Insert five students at once.
 db.students.insertMany([{ name: "Priya", age: 19, department: "ECE", gpa: 9.1, fullTime: true, skills: ["C", "Embedded Systems"], address: { city: "Coimbatore", state: "Tamil Nadu" } }, { name: "Arun", age: 21, department: "IT", gpa: 8.6, fullTime: true, skills: ["Python", "Django"], address: { city: "Madurai", state: "Tamil Nadu" } }, { name: "Sneha", age: 22, department: "CSE", gpa: 9.3, fullTime: false, skills: ["React", "MongoDB"], address: { city: "Salem", state: "Tamil Nadu" } }, { name: "Vikram", age: 23, department: "Mechanical", gpa: 7.4, fullTime: false, skills: ["AutoCAD", "SolidWorks"], address: { city: "Trichy", state: "Tamil Nadu" } }, { name: "Meena", age: 20, department: "Civil", gpa: 8.0, fullTime: true, skills: ["AutoCAD", "STAAD Pro"], address: { city: "Erode", state: "Tamil Nadu" } }])
 ------------------------------------------------
-Find all students
+3 .Find all students
 db.students.find();
 -----------------
-
-Find only one student.
-db.students.find().limit(1)
+4 .Find only one student.
+db.students.findOne()
 ------------------------
-Find students older than 20.
+5. Find students older than 20.
 db.students.find({age:{$gt:20}})
-
 -------------------------------
-
-Find students with GPA greater than 8.
+6. Find students with GPA greater than 8.
 db.students.find({gpa:{$gt:8}})
 -----------------------------------
-
-Find students between ages 18 and 22.
-Find students from Chennai.
+7. Find students between ages 18 and 22.
+db.students.find({age:{$gte:18, $lte:22}})
+----------------------------------
+8. Find students from Chennai.
+db.students.find({'address.city':'Chennai'})
 -----------------------------
-Find students who are full-time. 
+9. Find students who are full-time. 
 db.students.find({fullTime:true})
 --------------------------------
-
-Find students who know JavaScript.
+10. Find students who know JavaScript.
 db.students.find({skills:'JavaScript'})
 -------------------------------------
-Update one student's GPA.
-Update every student's department.
-Add a new field called graduated.
-Remove the graduated field.
-Delete one student.
-
-Delete all students with GPA below 5.
+11. Update one student's Name.
+db.students.updateOne({name:"Nisha"},{$set:{name:'Thayub'}})
+---------------------------------------
+12. Update every student's department
+db.students.updateMany({},{$set:{'department':'CSE'}})
+------------------------------------------
+13. Add a new field called country.
+db.students.updateMany({},{$set:{'country':'India'}})
+-----------------------------------
+14. Remove the graduated field.
+db.students.updateMany({},{$unset:{graduated:''}})
+------------------------------------
+15. Delete one student.
+db.students.deleteOne({name:"Lakshmi"})
+---------------------------------
+16. Delete all students with GPA below 9.
+db.students.deleteMany({gpa:{$lt:9}})
 ----------------------------
-Count all students.
+17. Count all students.
 db.students.countDocuments({})
 ------------------------------
-Rename a field.
-Replace one entire document.
-
-------------==
-Drop the collection.
+18. Rename a field.
+db.students.updateMany({},{$rename:{'fullTime':'fulltime'}})
+------------------------------
+19. Replace one entire document.
+db.students.replaceOne({name:"Keerthana"},{name:'Buyath',age:21,department:'ECE',gpa:10,skills:['semiconductor','iot'],address:{city:'Tirunelveli',state:'Tamil Nadu'},fulltime:true,country:'India',graduated:true})
+--------------------
+20. Drop the collection.
 db.students.drop();
