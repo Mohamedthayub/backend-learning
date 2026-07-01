@@ -1,0 +1,55 @@
+crud practice
+-------------
+
+
+Now solve these without looking at notes.
+
+Insert one student.
+db.students.insertOne({ name: "Rahul", age: 20, department: "CSE", gpa: 8.2, fullTime: true, skills: ["JavaScript", "Node.js"], address: { city: "Chennai", state: "Tamil Nadu" } })
+--------------------------------------------------
+Insert five students at once.
+db.students.insertMany([{ name: "Priya", age: 19, department: "ECE", gpa: 9.1, fullTime: true, skills: ["C", "Embedded Systems"], address: { city: "Coimbatore", state: "Tamil Nadu" } }, { name: "Arun", age: 21, department: "IT", gpa: 8.6, fullTime: true, skills: ["Python", "Django"], address: { city: "Madurai", state: "Tamil Nadu" } }, { name: "Sneha", age: 22, department: "CSE", gpa: 9.3, fullTime: false, skills: ["React", "MongoDB"], address: { city: "Salem", state: "Tamil Nadu" } }, { name: "Vikram", age: 23, department: "Mechanical", gpa: 7.4, fullTime: false, skills: ["AutoCAD", "SolidWorks"], address: { city: "Trichy", state: "Tamil Nadu" } }, { name: "Meena", age: 20, department: "Civil", gpa: 8.0, fullTime: true, skills: ["AutoCAD", "STAAD Pro"], address: { city: "Erode", state: "Tamil Nadu" } }])
+------------------------------------------------
+Find all students
+db.students.find();
+-----------------
+
+Find only one student.
+db.students.find().limit(1)
+------------------------
+Find students older than 20.
+db.students.find({age:{$gt:20}})
+
+-------------------------------
+
+Find students with GPA greater than 8.
+db.students.find({gpa:{$gt:8}})
+-----------------------------------
+
+Find students between ages 18 and 22.
+Find students from Chennai.
+-----------------------------
+Find students who are full-time. 
+db.students.find({fullTime:true})
+--------------------------------
+
+Find students who know JavaScript.
+db.students.find({skills:'JavaScript'})
+-------------------------------------
+Update one student's GPA.
+Update every student's department.
+Add a new field called graduated.
+Remove the graduated field.
+Delete one student.
+
+Delete all students with GPA below 5.
+----------------------------
+Count all students.
+db.students.countDocuments({})
+------------------------------
+Rename a field.
+Replace one entire document.
+
+------------==
+Drop the collection.
+db.students.drop();
