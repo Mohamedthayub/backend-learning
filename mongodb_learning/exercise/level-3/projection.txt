@@ -1,0 +1,31 @@
+Examples:
+---------------------------------------
+Only name
+db.students.find({},{name:1})
+-----------------------------------------
+Name and GPA
+db.students.find({},{name:1,gpa:1})
+-----------------------------------------
+Name without _id
+db.students.find({},{_id:0,name:1})
+-----------------------------------------
+Address only
+db.students.find({},{_id:0,address:1})
+------------------------------------------
+Skills only
+db.students.find({},{_id:0,skills:1})
+------------------------------------------
+Exclude address
+db.students.find({},{address:0})
+------------------------------------------
+Exclude skills
+db.students.find({},{skills:0})
+------------------------------------------
+Include age and department
+db.students.find({},{_id:0,age:1,department:1})
+-------------------------------------------
+Include nested field address.city
+db.students.find({},{_id:0,'address.city':1})
+----------------------------------------------
+Return only name and city
+db.students.find({},{_id:0,name:1,'address.city':1})
