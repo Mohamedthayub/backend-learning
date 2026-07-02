@@ -1,0 +1,48 @@
+Query Operator 
+Exercises:
+
+GPA > 8
+db.students.find({'gpa':{$gt: 8}})
+--------------------------------------
+GPA < 6
+db.students.find({'gpa':{$lt: 6}})
+---------------------------------------
+GPA between 7 and 9
+db.students.find({'gpa':{$gte: 7,$lte:9}})
+---------------------------------------
+Age not equal to 20
+db.students.find({'age': {$ne:20}})
+----------------------------------------
+Department is CSE or ECE
+db.students.find({$or:[{department:'CSE',department:'ECE'}]})
+---------------------------------------------------------
+Department is neither CSE nor ECE
+db.students.find({$nor:[{department:'CSE',department:'ECE'}]})
+ -------------------------------------------------
+Full-time AND GPA > 8
+db.students.find({fullTime:true,gpa:{$gt:8}})
+---------------------------------------------------
+Age < 20 OR GPA > 9
+db.students.find({$or:[{age:{$lt:20}},{gpa:{$gt:9}}]})
+----------------------------------------------
+Find documents missing the skills field.
+db.students.find({skills:{$exists:false}})
+-----------------------------------------------
+Find students with department in ["CSE","IT"].
+db.students.find({department:{$in:['CSE','IT']}})
+--------------------------------------------
+Find students whose age is not in [18,19].
+db.students.find({age:{$nin:[18,19]}})
+------------------------------------------
+Use $not with GPA.
+db.students.find({gpa:{$not:{$gt:9}}}) // i learnt how to not operator
+------------------------------------
+Combine three conditions
+db.students.find({$and:[{fullTime:true},{age:{$gt:20}},{gpa:{$lt:9}}]})
+-------------------------------------------
+Find students from Chennai with GPA > 8
+db.students.find({$and:[{'address.city':'Chennai'},{gpa:{$gt:8}}]})
+------------------------------------
+Find non-full-time students 16–25. Create ten more combinations on your own.
+db.students.find({fullTime:false})
+-----------------------------------
