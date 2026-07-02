@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const isvalidAddNote = require('./utils/validator');
+const { comma } = require('postcss/lib/list');
 
 const filePath = path.join(__dirname , "notes.json");
 
@@ -9,49 +11,27 @@ const title =  process.argv[3];
 const content = process.argv[4];
 const tags = process.argv[5];
 
-const readNotes = () => {
-    try{
-        const data = fs.readFileSync(filePath,'utf8')
-        return JSON.parse(data);
-    }
-    catch(err){
-        return [];
-    }
-}
-
-const saveNotes = (notes) => {
-    fs.writeFile(filePath,JSON.stringify(notes),(err) => {
-        if(err){
-            throw err;
-        }
-    });
-}
-
-if(command == "add"){
+function createNote(title,content,tags){
     const notes = readNotes();
-    
     const note = {
         "id":notes.length + 1,
-        "title" :title,
+        "title":title,
         "content":content,
-        "tags":tags.split(","),
+        "tags":tags.split(" "),
         "archived":false
-        
     }
-    console.log(note);      
-    notes.push(note);   
+    notes.push(note);
     saveNotes(notes);
     console.log("✓ Note added successfully.");
-}
 
-else if (command == 'delete'){
+}
+function deleteNote(id){
     const notes = readNotes();
     const filteredNotes = notes.filter((nt) => nt.id != id);
     saveNotes(filteredNotes);
     console.log("✓ Note deleted successfully.");
 }
-
-else if (command  == "list"){
+function listNotes(){
     const notes = readNotes();
     if(notes.length == 0){
         console.log("No notes are available. !");
@@ -62,8 +42,7 @@ else if (command  == "list"){
         console.log(`${column_number}. ${note.title}`);
     }
 }
-
-else if (command == "stats"){
+function showStats(){
     const notes = readNotes();
     
     const tagCount = notes.reduce((acc,curr) => {
@@ -88,9 +67,9 @@ else if (command == "stats"){
     console.log(`Active Notes   : ${activeNotes}` );
     console.log(`Archived Notes : ${archivedNotes}`);
     console.log(`Tags Used      : ${tagCount}`);
-
+    
 }
-else if (command == "archive"){
+function archiveNote(id){
     const notes = readNotes();
     const archivedNotes = notes.map((nt) => {
         if(nt.id == id && nt.archived == false){
@@ -101,7 +80,7 @@ else if (command == "archive"){
     saveNotes(archivedNotes);
     console.log("✓ Note archived successfully.");
 }
-else if(command == "unarchive"){
+function unArchive(id){
     const notes = readNotes();
     const unarchivedNotes = notes.map((nt) => {
         if(nt.id == id && nt.archived == true){
@@ -112,10 +91,9 @@ else if(command == "unarchive"){
     saveNotes(unarchivedNotes);
     console.log("✓ Note unarchived successfully.");
 }
-
-else if (command == "archived"){
+function showArchivedNotes(){
     const notes = readNotes();   
-    console.log("archived notes :")
+    console.log("Archived notes :")
     notes.forEach((note) => {
         if(note.archived == true){
             console.log(`${note.id}. ${note.title}` );
@@ -123,13 +101,57 @@ else if (command == "archived"){
     })
 }
 
-
-else if (command == "read"){
+function readSingleNote(id){
     const notes = readNotes();
     const filteredNote = notes.filter((note) => note.id ==  id);
     console.log(filteredNote);
 }
 
+const readNotes = () => {
+    try{
+        const data = fs.readFileSync(filePath,'utf8')
+        return JSON.parse(data);
+    }
+    catch(err){
+        return [];
+    }
+}
+
+
+const saveNotes = (notes) => {
+    fs.writeFile(filePath,JSON.stringify(notes),(err) => {
+        if(err){
+            throw err;
+        }
+    });
+}
+
+if(command == "add"){
+    if(isvalidAddNote(command,title,content,tags)){
+        createNote(title,content,tags);   
+    }
+}
+else if (command === 'delete'){
+    deleteNote(id);
+}
+else if (command === "list"){
+    listNotes()
+}
+else if(command === "stats"){
+    showStats();
+}
+else if(command === "archive"){
+    archiveNote(id);
+}
+else if (command == "unarchive"){
+    unArchive(id);
+}
+else if(command == "showarchive"){
+    showArchivedNotes();
+}
+else if(command == "read"){
+    readSingleNote(id);
+}
 else{
     console.log("Invalid command");
 }
