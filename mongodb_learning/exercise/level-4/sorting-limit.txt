@@ -1,0 +1,33 @@
+Level 4: Sorting, Limit & Skip (15 Exercises)
+----------------------------------------
+Highest GPA first.
+db.students.find().sort({gpa:-1})
+--------------------------------------
+Lowest GPA first.
+db.students.find().sort({gpa:1})
+----------------------------------------
+Youngest first.
+db.students.find().sort({age:1})
+-------------------------------------------
+Oldest first.
+db.students.find().sort({age:-1})
+----------------------------------------
+First five students.
+db.students.find().limit(5)
+---------------------------------------
+Next five students.
+db.students.find().skip(5).limit(5)
+----------------------------------------
+Highest three GPAs.
+db.students.find().sort({gpa:-1}).limit(3)
+-----------------------------------------
+Lowest two GPAs.
+ db.students.find().sort({gpa:1}).limit(2)
+-------------------------------------
+Skip ten documents.
+db.students.find().skip(10)
+----------------------------------------
+Combine sort + limit.
+11–15. Try different combinations.
+db.students.find().sort({gpa:-1}).limit(5)
+-------------------------------------------
