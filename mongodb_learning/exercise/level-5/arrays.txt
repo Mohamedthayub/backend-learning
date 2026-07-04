@@ -1,0 +1,36 @@
+Level 5: Array Exercises (20 Exercises)
+
+Use the skills array.
+
+Examples:
+
+Students with JavaScript.
+db.students.find({skills:'JavaScript'})
+---------------------------------------
+Students with Node.js.
+db.students.find({skills:'Node.js'})
+--------------------------------------
+Students with both JavaScript and MongoDB.
+db.students.find({$and:[{skills:'Javascript'},{skills:'MongoDB'}]})
+-------------------------------------------------------
+Add React to one student.
+db.students.updateOne({name:'Gokul'},{$push:{skills:"Next.js"}})
+----------------------------------------------------------------
+Add Express to everyone.
+Remove Python.
+Prevent duplicate skills.
+Remove the last skill.
+Remove the first skill.
+Replace one skill with another.
+11–20. Create your own array updates and queries.
+-------------------------------------
+update the array data 
+db.students.updateOne(
+  { name: "Gokul" },
+  {
+    $set: {
+      "skills.2": "MongoDB"
+    }
+  }
+)
+-----------------------------------

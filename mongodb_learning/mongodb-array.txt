@@ -1,0 +1,150 @@
+1. Add One Item — $push
+
+Adds an element to the end of an array.
+
+Syntax
+db.collection.updateOne(
+    { filter },
+    {
+        $push: {
+            arrayField: value
+        }
+    }
+)
+--------------------------------
+2. Add Multiple Items — $each
+db.students.updateOne(
+    { name: "Rahul" },
+    {
+        $push: {
+            skills: {
+                $each: [
+                    "Express",
+                    "Docker
+                ]
+            }
+        }
+    }
+)
+
+Result
+
+[
+    "JavaScript",
+    "Node.js",
+    "React",
+    "Express",
+    "Docker"
+]
+--------------------------------
+4. Remove One Item — $pull
+
+Before
+
+[
+    "JavaScript",
+    "Node.js",
+    "React"
+]
+
+Query
+
+db.students.updateOne(
+    { name: "Rahul" },
+    {
+        $pull: {
+            skills: "React"
+        }
+    }
+)
+
+After
+
+[
+    "JavaScript",
+    "Node.js"
+]
+-------------------------------
+5. Remove Multiple Items
+db.students.updateOne(
+    { name: "Rahul" },
+    {
+        $pull: {
+            skills: {
+                $in: [
+                    "React",
+                    "MongoDB"
+                ]
+            }
+        }
+    }
+)
+
+Result
+
+[
+    "JavaScript",
+    "Node.js"
+]
+-----------------------------------
+6. Remove First or Last Item — $pop
+
+Current Array
+
+[
+    "JavaScript",
+    "Node.js",
+    "React"
+]
+
+Remove the first item
+
+db.students.updateOne(
+    { name: "Rahul" },
+    {
+        $pop: {
+            skills: -1
+        }
+    }
+)
+
+Result
+
+[
+    "Node.js",
+    "React"
+]
+
+Remove the last item
+
+db.students.updateOne(
+    { name: "Rahul" },
+    {
+        $pop: {
+            skills: 1
+        }
+    }
+)
+
+Result
+
+[
+    "JavaScript",
+    "Node.js"
+]
+Summary
+-------
+Operator	Purpose
+--------------------
+$push -> 	Add one element
+$each -> 	Add multiple elements
+$addToSet -> 	Add only if the value doesn't already exist
+$pull -> 	Remove matching elements
+$pop  -> 	Remove the first or last element
+$set  ->	Update an element or replace the entire array
+$Update -> the first matching array element
+$in	 -> Match any value in an array
+$all ->	Match all specified values
+$size -> Match arrays of a specific length
+$exists	-> Check whether the array field exists
+$unset -> 	Remove the array field completely
