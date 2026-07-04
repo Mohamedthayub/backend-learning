@@ -17,12 +17,22 @@ Add React to one student.
 db.students.updateOne({name:'Gokul'},{$push:{skills:"Next.js"}})
 ----------------------------------------------------------------
 Add Express to everyone.
+db.students.updateMany({},{$push:{skills:'Express'}})
+----------------------------------------------------
 Remove Python.
-Prevent duplicate skills.
+db.students.updateOne({name:'Gokul'},{$pull:{skills:'Python'}})
+---------------------------------------------------------------------
 Remove the last skill.
+db.students.updateOne({name:'Gokul'},{$pop:{skills:1}})
+-------------------------------------------------------
 Remove the first skill.
+db.students.updateOne({name:'Gokul'},{$pop:{skills:-1}})
+--------------------------------------
 Replace one skill with another.
-11–20. Create your own array updates and queries.
+db.students.updateOne({name:'Hari'},{$set:{'skills.0':'HTML'}})
+---------------------------------------------------------
+Prevent duplicate skills.
+db.students.updateOne({name:'Lakshmi'},{$addToSet:{skills:'Thayub'}})
 -------------------------------------
 update the array data 
 db.students.updateOne(

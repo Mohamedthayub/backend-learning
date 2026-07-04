@@ -1,0 +1,22 @@
+Level 6: Nested Documents (15 Exercises)
+
+Use:
+
+address:{
+    city:"",
+    state:"",
+    pincode:600001
+}
+
+Exercises:
+
+Find Chennai students.
+Find students from Tamil Nadu.
+Update city.
+Update pincode.
+Find by city and GPA.
+Change the whole address.
+Remove pincode.
+Add country.
+Rename city to district.
+Ten more similar exercises.
