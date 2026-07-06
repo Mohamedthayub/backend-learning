@@ -11,12 +11,30 @@ address:{
 Exercises:
 
 Find Chennai students.
+db.students.find({'address.city':'Chennai'})
+-------------------------------------------
 Find students from Tamil Nadu.
+db.students.find({'address.state':'Tamil Nadu'})
+---------------------------------------------
 Update city.
+db.students.updateOne({_id:ObjectId('6a4653e9f0bde14a661ed741')},{$set:{'address.city':'tirunelvelu'}})
+--------------------------------------------------------------------------------------------------------
 Update pincode.
+db.students.updateOne({_id:ObjectId('6a4653e9f0bde14a661ed741')},{$set:{'address.pincode':627004}})
+-------------------------------------------
 Find by city and GPA.
+db.students.find({'address.city':'Tirunelveli',gpa:9})
+--------------------------------------------------------
 Change the whole address.
+db.students.updateOne({_id: ObjectId('6a4c3a6adf6a9546702d323d')},{$set:{address:{doorNo:'42a/5 south thaikka street',city:'Tirunelveli',state:'TamilNadu',}}})
+------------------------------------------------------
 Remove pincode.
+db.students.updateOne({name:'Gokul'},{$unset:{pincode:null}})
+--------------------------------------------------
 Add country.
+db.students.updateMany({},{$set:{country:'India'}})
+----------------------------------------
 Rename city to district.
+db.students.updateMany({},{$rename:{'address.city':'District'}})
+ --------------------------------------------------------
 Ten more similar exercises.
