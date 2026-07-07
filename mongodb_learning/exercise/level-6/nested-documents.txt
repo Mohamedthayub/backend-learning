@@ -71,3 +71,11 @@ db.students.find({'address.pincode':{$gt:600000}})
 Replace the entire address object with a new one containing city, state, pincode, and country
 db.students.updateOne({name:'Anjali'},{$set:{address:{District:'Tirunelveli',Pincode:627005,County:'India'}}})
 ------------------------------------------------------------------------------------
+
+
+
+Final Score
+Syntax: ⭐⭐⭐⭐⭐ (9.5/10)
+Understanding of nested documents: ⭐⭐⭐⭐⭐
+Field paths: ⭐⭐⭐⭐⭐
+Attention to the exact problem statement: ⭐⭐⭐⭐☆ (this is where your two mistakes came from)
