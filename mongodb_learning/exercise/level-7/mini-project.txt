@@ -1,0 +1,32 @@
+Find the top 5 students by GPA.
+db.students.find().sort({gpa:-1}).limit(5)
+-------------------------------------------
+Find all CSE students.
+db.students.find({department:'CSE'})
+----------------------------------------------
+Find students older than 20.
+db.students.find({age:{$lt:20}})
+--------------------------------------
+Find teachers with more than 10 years of experience.
+db.teachers.find({experience:{$gt:10}})
+---------------------------------------------
+Find courses worth more than 4 credits.
+db.courses.find({credits:{$gte:4}})
+------------------------------------
+
+Find students who know Node.js.
+Increase everyone's GPA by 0.2.
+---------------------------------
+Delete inactive students.
+db.students.deleteMany({fullTime:false})
+----------------------------------------
+Add attendance to every student.
+Remove attendance.
+Count students in each department (using aggregation later).
+-----------------------------------------------
+Sort students alphabetically.
+db.students.find().sort({name:1})
+------------------------------
+Find the newest students.
+Paginate students (page 2).
+Find students from Chennai with GPA above 8
