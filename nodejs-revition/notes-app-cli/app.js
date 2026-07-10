@@ -1,4 +1,4 @@
-const isvalidAddNote = require('./utils/validator');
+const {validateAddNote, validateId}  = require('./utils/validator');
 const createNote = require('./commands/addCommand');
 const deleteNote  = require('./commands/deleteCommand');
 const listNotes = require('./commands/listCommand');
@@ -8,7 +8,7 @@ const unArchive = require('./commands/unarchiveCommand');
 const readSingleNote = require('./commands/readSingleCommand');
 const showArchivedNote = require('./commands/showArchivedCommand');
 const command = process.argv[2];
-const id = process.argv[3]
+const id = Number(process.argv[3]);
 const title =  process.argv[3];
 const content = process.argv[4];
 const tags = process.argv[5];
@@ -17,12 +17,14 @@ const tags = process.argv[5];
 
 
 if(command == "add"){
-    if(isvalidAddNote(command,title,content,tags)){
+    if(validateAddNote(command,title,content,tags)){
         createNote(title,content,tags);   
     }
 }
 else if (command === 'delete'){
-    deleteNote(id);
+    if(validateId(id)){
+        deleteNote(id)
+    }
 }
 else if (command === "list"){
     listNotes()

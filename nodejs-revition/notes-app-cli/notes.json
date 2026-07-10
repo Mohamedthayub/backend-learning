@@ -1,25 +1,5 @@
 [
   {
-    "id": 4,
-    "title": "JWT Authentication",
-    "content": "Token Based Authentication",
-    "tags": [
-      "jwt",
-      "auth"
-    ],
-    "archived": false
-  },
-  {
-    "id": 5,
-    "title": "JavaScript Promises",
-    "content": "Async Await and Promise Chaining",
-    "tags": [
-      "javascript",
-      "async"
-    ],
-    "archived": true
-  },
-  {
     "id": 7,
     "title": "learn ai",
     "content": "RAG",
@@ -28,25 +8,12 @@
   },
   {
     "id": 5,
-    "title": "notes-app",
-    "content": "this is something",
+    "title": "test",
+    "content": "test content",
     "tags": [
-      "tags",
-      "skjfsld",
-      "ffjsldflsd",
-      "sjfls"
-    ],
-    "archived": true
-  },
-  {
-    "id": 6,
-    "title": "notes-app",
-    "content": "this is something",
-    "tags": [
-      "tags",
-      "skjfsld",
-      "ffjsldflsd",
-      "sjfls"
+      "funtional",
+      "manual",
+      "unit"
     ],
     "archived": false
   }

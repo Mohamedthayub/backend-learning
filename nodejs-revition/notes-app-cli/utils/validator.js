@@ -14,8 +14,15 @@ function validateAddNote(command,title,content,tags){
     return true;
 }
 function validateId(id){
-    if(Number.isInteger(id) || id <= 0){
-        throw new Error("Invalid Id");
+    if(!id){
+        throw new Error("you should provide  the valide Id");
     }
+    if(!Number.isInteger(id)){
+        throw new Error("The Id should be Integer.");
+    }
+    if(id <= 0 ){
+        throw new Error("the should be greater than 0");
+    }  
+    return true;
 }
-module.exports = validateAddNote;
+module.exports = {validateAddNote,validateId};
