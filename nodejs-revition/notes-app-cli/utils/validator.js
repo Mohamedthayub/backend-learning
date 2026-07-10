@@ -1,4 +1,4 @@
-function validateAddNote(command,title,content,tags){
+function validateNote(title,content,tags){
     if(!title){
         throw new Error("title is required");
         return false;
@@ -25,4 +25,4 @@ function validateId(id){
     }  
     return true;
 }
-module.exports = {validateAddNote,validateId};
+module.exports = {validateNote,validateId};

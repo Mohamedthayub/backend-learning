@@ -5,28 +5,49 @@ Find all CSE students.
 db.students.find({department:'CSE'})
 ----------------------------------------------
 Find students older than 20.
-db.students.find({age:{$lt:20}})
+db.students.find({age:{$gt:20}})
 --------------------------------------
 Find teachers with more than 10 years of experience.
 db.teachers.find({experience:{$gt:10}})
 ---------------------------------------------
 Find courses worth more than 4 credits.
-db.courses.find({credits:{$gte:4}})
+db.courses.find({credits:{$gt:4}})
 ------------------------------------
 
 Find students who know Node.js.
+db.students.find({skills:'Node.js'})
+-------------------------------------
 Increase everyone's GPA by 0.2.
 ---------------------------------
 Delete inactive students.
 db.students.deleteMany({fullTime:false})
 ----------------------------------------
 Add attendance to every student.
+db.students.updateMany({},{$set:{attendance:100}})
+--------------------------------------------------
 Remove attendance.
+db.students.updateMany({},{$unset:{attendance:null}})
+--------------------------------------------------
 Count students in each department (using aggregation later).
+db.students.aggregate([
+|     {
+|         $group: {
+|             _id: "$department",
+|             totalStudents: {
+|                 $sum: 1
+|             }
+|         }
+|     }
+| ])
 -----------------------------------------------
 Sort students alphabetically.
 db.students.find().sort({name:1})
 ------------------------------
 Find the newest students.
+db.students.find().sort({age:1}).limit(1)
+-------------------------------------
 Paginate students (page 2).
+db.students.find().skip(5).limit(5)
+--------------------------------------
 Find students from Chennai with GPA above 8
+db.students.find({$and:[{gpa:{$gt:8}},{'address.district':'Chennai'}]})
