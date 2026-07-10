@@ -6,7 +6,7 @@ const showStats = require('./commands/statsCommand');
 const archiveNote = require('./commands/archiveCommand');
 const unArchive = require('./commands/unarchiveCommand');
 const readSingleNote = require('./commands/readSingleCommand');
-const showArchivedNote = require('./commands/showArchivedCommand');
+const showArchivedNotes = require('./commands/showArchivedCommand');
 const command = process.argv[2];
 const id = Number(process.argv[3]);
 const title =  process.argv[3];
@@ -33,16 +33,22 @@ else if(command === "stats"){
     showStats();
 }
 else if(command === "archive"){
-    archiveNote(id);
+    if(validateId(id)){
+        archiveNote(id);    
+    }
 }
 else if (command == "unarchive"){
-    unArchive(id);
+    if(validateId(id)){
+        unArchive(id);
+    }
 }
 else if(command == "showarchive"){
-    showArchivedNote();
+    showArchivedNotes();
 }
 else if(command == "read"){
-    readSingleNote(id);
+    if(validateId(id)){
+        readSingleNote(id);
+    }
 }
 else{
     console.log("Invalid command");
