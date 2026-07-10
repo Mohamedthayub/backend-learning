@@ -1,3 +1,5 @@
+const {readNotes,saveNotes }  = require('../utils/notes');
+
 function unArchive(id){
     const notes = readNotes();
     const unarchivedNotes = notes.map((nt) => {
@@ -9,3 +11,4 @@ function unArchive(id){
     saveNotes(unarchivedNotes);
     console.log("✓ Note unarchived successfully.");
 }
+module.exports = unArchive;

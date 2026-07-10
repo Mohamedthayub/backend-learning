@@ -1,3 +1,4 @@
+const {readNotes,saveNotes }  = require('../utils/notes');
 function showStats(){
     const notes = readNotes();
     
@@ -25,3 +26,4 @@ function showStats(){
     console.log(`Tags Used      : ${tagCount}`);
     
 }
+module.exports = showStats;

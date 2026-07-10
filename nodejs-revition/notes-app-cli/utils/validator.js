@@ -1,5 +1,4 @@
 function validateAddNote(command,title,content,tags){
-    
     if(!title){
         throw new Error("title is required");
         return false;

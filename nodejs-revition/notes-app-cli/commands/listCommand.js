@@ -1,3 +1,4 @@
+const { readNotes, saveNotes } = require("../utils/notes");
 function listNotes(){
     const notes = readNotes();
     if(notes.length == 0){
@@ -9,3 +10,4 @@ function listNotes(){
         console.log(`${column_number}. ${note.title}`);
     }
 }
+module.exports = listNotes;

@@ -1,3 +1,5 @@
+const {readNotes,saveNotes }  = require('../utils/notes');
+
 function archiveNote(id){
     const notes = readNotes();
     const archivedNotes = notes.map((nt) => {
@@ -9,3 +11,4 @@ function archiveNote(id){
     saveNotes(archivedNotes);
     console.log("✓ Note archived successfully.");
 }
+module.exports = archiveNote;
