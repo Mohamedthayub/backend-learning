@@ -8,12 +8,15 @@ const unArchive = require('./commands/unarchiveCommand');
 const readSingleNote = require('./commands/readSingleCommand');
 const showArchivedNotes = require('./commands/showArchivedCommand');
 const updateNote = require('./commands/updateCommand');
+const exportNotes = require('./commands/exportCommand');
 const command = process.argv[2];
-
 const id = Number(process.argv[3]);
+const format = process.argv[3];
 const title =  process.argv[3];
 const content = process.argv[4];
 const tags = process.argv[5];
+
+
 
 
 
@@ -51,6 +54,9 @@ else if(command == "read"){
     if(validateId(id)){
         readSingleNote(id);
     }
+}
+else if (command == "export"){
+    exportNotes(format);
 }
 else if (command == "update"){
     if(validateNote(title,content,tags) && validateId(id)){

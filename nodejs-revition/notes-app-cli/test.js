@@ -1,7 +1,3 @@
-let number = "";
-if(!Number.isInteger(number)){
-    console.log("This is not number");
-}
-else{
-    console.log("This is a number");
-}
+console.log(process.argv[2]);
+console.log(process.argv[3]);
+
