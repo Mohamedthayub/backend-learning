@@ -1,0 +1,4 @@
+docker --version -- check the version of the installed docker
+docker info --to know  more information about the docker
+docker pull (docker image name) -- download docker image from dockerHub
+docker images -- show the all docker images
