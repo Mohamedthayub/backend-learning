@@ -1,0 +1,31 @@
+Level 1: Basic Queries (1–10)
+Find all students.
+db.students.find()
+-----------------
+Find only name and cgpa.
+db.students.find({},{name:1},{cgpa:1})
+------------------------------------
+Find students older than 20.
+db.students.find({age:{$gt:20}})
+----------------------------------
+Find students from Chennai.
+db.students.find({city:'Chennai'})
+--------------------------------------
+Find students with cgpa greater than 8.
+db.students.find({cgpa:{$gt:8}})
+------------------------------------
+Find inactive students.
+db.students.find({active:false})
+-------------------------------------
+Find students in CSE department.
+db.students.find({department:'CSE'})
+--------------------------------------
+Find students whose name starts with A.
+db.students.find({name:/^A/})
+------------------------------------
+Find students whose city contains "pur".
+db.students.find({city:/pur/})
+-----------------------------------------
+Find students aged between 18 and 22.
+db.students.find({age:{$gt:18, $lt:22}})
+------------------------------------------
