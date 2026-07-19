@@ -1,0 +1,13 @@
+Level 3: Update Queries (21–30)
+Update one student's city.
+db.students.updateOne({name:'Nisha'},{$set:{city:'Tirunelveli'}})
+----------------------------------------------------------------
+Increase cgpa by 0.5.
+Add skill "Node.js".
+Remove skill "Java".
+Rename department field.
+Update multiple students to active.
+Change city for all Chennai students.
+Set graduation year.
+Remove graduation year.
+Replace one document completely.
