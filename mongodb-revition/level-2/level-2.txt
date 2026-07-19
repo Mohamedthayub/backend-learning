@@ -1,0 +1,31 @@
+Level 2: Sorting & Limiting (11–20)
+Sort by cgpa ascending.
+db.students.find().sort({cgpa:1})
+---------------------------------
+Sort by cgpa descending.
+db.students.find().sort({cgpa:-1})
+------------------------------------
+Top 5 students.
+db.students.find().sort({cgpa:-1}).limit(5)
+--------------------------------------------
+Lowest cgpa.
+db.students.find().sort({cgpa:1}).limit(1)
+--------------------------------------------
+Oldest student.
+db.students.find().sort({age:-1}).limit(1)
+-----------------------------------------
+Youngest student.
+db.students.find().sort({age:1}).limit(1)
+---------------------------------------
+Skip first 10 students.
+db.students.find().skip(10)
+-----------------------------------------
+Latest created student.
+db.students.find().sort({createdAt:-1}).limit(1)
+---------------------------
+Earliest created student.
+db.students.find().sort({createdAt:1}).limit(1)
+--------------------------------
+Top 3 CSE students.
+db.students.find({department:'CSE'}).sort({cgpa:-1}).limit(3)
+-------------------------------------------------
