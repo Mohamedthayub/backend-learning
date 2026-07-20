@@ -1,4 +1,7 @@
 docker --version -- check the version of the installed docker
-docker info --to know  more information about the docker
+docker info -- to know  more information about the docker
 docker pull (docker image name) -- download docker image from dockerHub
 docker images -- show the all docker images
+docker pull  hello-world -- we download image from dockerHub Server
+docker run hello-world -- we run the downloaded docker image 
+docker ps || docker ps -a -- list all running containers on your system
