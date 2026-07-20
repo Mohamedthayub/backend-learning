@@ -3,11 +3,28 @@ Update one student's city.
 db.students.updateOne({name:'Nisha'},{$set:{city:'Tirunelveli'}})
 ----------------------------------------------------------------
 Increase cgpa by 0.5.
+db.students.updateMany({},{$inc:{cgpa:0.5}})
+----------------------------------------------
 Add skill "Node.js".
+db.students.updateOne({name:'Thayub'},{$push:{skills:'Node.js'}})
+-----------------------------------------------------------------
 Remove skill "Java".
-Rename department field.pl
+db.students.updateOne({name:'Thayub'},{$pull:{skills:'Java'}})
+--------------------------------------------------------
+Rename department field
+db.students.updateMany({},{$rename:{department:'branch'}})
+--------------------------------------------------------------------
 Update multiple students to active.
+db.students.updateMany({active:false},{$set:{active:true}})
+--------------------------------------------------------------
 Change city for all Chennai students.
+db.students.updateMany({city:'Chennai'},{$set:{city:'Tirunelveli'}})
+-------------------------------------------------------------------------
 Set graduation year.
+db.students.updateMany({},{$set:{'grauduation-year':2025}})
+---------------------------------------------------------------------
 Remove graduation year.
+db.students.updateMany({},{$unset:{'grauduation-year':null}})
+------------------------------------------------------------------------
 Replace one document completely
+db.students.replaceOne({name:'Nisha'},{name:'Thayub',age:21,department:'IT',cgpa:10,city:'Tirunelveli',skills:['DBMS','Dsa','Programming'],active:true,createdAt: ISODate('2024-08-01T00:00:00.000Z')})

@@ -1,0 +1,16 @@
+Level 4: Delete Queries (31–35)
+Delete one student.
+db.students.deleteOne({  _id: ObjectId('6a5bed1d407fb75f305b9b43')})
+-----------------------------------------------------------------------
+Delete inactive students.
+db.students.deleteMany({active:false})
+---------------------------------------------------
+Delete students below cgpa 5.
+db.students.deleteMany({cgpa:{$lt:5}})
+-----------------------------------------------------
+Delete all ECE students.
+db.students.deleteMany({department:'ECE'})
+-------------------------------------------------
+Remove all documents.
+db.students.deleteMany({})
+--------------------------------------
