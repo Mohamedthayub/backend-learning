@@ -1,0 +1,246 @@
+# Docker Basics Roadmap (Complete in One Day)
+
+## Goal
+
+By the end of today, you should be able to:
+
+* Explain what Docker is and why it is used.
+* Understand the difference between Images and Containers.
+* Pull, run, stop, start, restart, and remove containers.
+* Remove Docker images.
+* Inspect running containers.
+* Understand the complete lifecycle of a Docker container.
+
+---
+
+# Part 1: Docker Fundamentals (45–60 Minutes)
+
+## Learn
+
+* What is Docker?
+* Why Docker was created
+* Problems Docker solves
+* Virtual Machines vs Containers
+* Docker Architecture
+* Docker Engine
+* Docker Client
+* Docker Daemon
+* Docker Hub
+* Docker Image
+* Docker Container
+
+### Practice
+
+Be able to explain:
+
+* What is an Image?
+* What is a Container?
+* Why do companies use Docker?
+* How does `docker run` work internally?
+
+---
+
+# Part 2: Docker Images (30 Minutes)
+
+## Learn
+
+* What is a Docker Image?
+* Image layers (basic understanding)
+* Image tags (`latest`, version tags)
+* Where images come from (Docker Hub)
+
+## Commands
+
+```bash
+docker pull nginx
+docker pull node
+docker pull ubuntu
+docker pull mongo
+docker images
+docker rmi <image-name>
+```
+
+### Practice
+
+* Download multiple images.
+* List all images.
+* Delete an image.
+* Understand why an image cannot be deleted if containers still depend on it.
+
+---
+
+# Part 3: Docker Containers (1 Hour)
+
+## Learn
+
+* What is a Container?
+* Container lifecycle
+
+### Commands
+
+```bash
+docker run hello-world
+docker run nginx
+docker ps
+docker ps -a
+docker stop <container-id>
+docker start <container-id>
+docker restart <container-id>
+docker rm <container-id>
+```
+
+### Practice
+
+* Create multiple containers.
+* Stop them.
+* Start them again.
+* Restart them.
+* Remove them.
+* Observe how containers are created from images.
+
+---
+
+# Part 4: Understanding `docker run` (1 Hour)
+
+## Learn
+
+* Basic syntax
+
+```bash
+docker run <image-name>
+```
+
+### Important Options
+
+```bash
+docker run -it ubuntu
+docker run -d nginx
+docker run --name my-nginx nginx
+docker run -p 8080:80 nginx
+```
+
+Understand:
+
+* `-it`
+* `-d`docker rm 108f4d4b9659
+* `--name`
+* `-p`
+
+### Practice
+
+* Run Ubuntu interactively.
+* Run Nginx in the background.
+* Name your containers.
+* Access Nginx from your browser.
+
+---
+
+# Part 5: Working with Running Containers (45 Minutes)
+
+## Commands
+
+```bash
+docker exec
+docker logs
+docker inspect
+docker top
+docker stats
+```
+
+### Practice
+
+* Open a shell inside a running Ubuntu container.
+* View container logs.
+* Inspect container details.
+* Monitor CPU and memory usage.
+
+---
+
+# Part 6: Cleanup (15 Minutes)
+
+Learn how to clean up Docker resources.
+
+```bash
+docker rm <container-id>
+docker rmi <image-name>
+docker container prune
+docker image prune
+```
+
+Understand the difference between:
+
+* Removing a container
+* Removing an image
+* Removing unused resources
+
+---
+
+# Mini Project (30–45 Minutes)
+
+## Run an Nginx Web Server
+
+1. Pull the Nginx image.
+2. Run it with port mapping:
+
+```bash
+docker run -d --name my-nginx -p 8080:80 nginx
+```
+
+3. Open your browser:
+
+```text
+http://localhost:8080
+```
+
+4. Stop the container.
+5. Start it again.
+6. View its logs.
+7. Inspect it.
+8. Remove the container.
+9. Remove the image.
+
+---
+
+# End-of-Day Checklist
+
+You should be able to answer:
+
+* What is Docker?
+* What is a Docker Image?
+* What is a Docker Container?
+* What is Docker Hub?
+* What is Docker Engine?
+* What is Docker Client?
+* What is Docker Daemon?
+* How does `docker run` work internally?
+* Why can't an image be deleted if a container uses it?
+
+You should also be comfortable using:
+
+```bash
+docker pull
+docker run
+docker ps
+docker ps -a
+docker images
+docker logs
+docker inspect
+docker top
+docker stats
+docker container prune
+docker image prune
+```
+
+---
+
+Once you've completed today's topics, move on to:
+
+1. Dockerfile
+2. Building your own Docker images (`docker build`)
+3. `.dockerignore`
+4. Image layers and caching
+5. Volumes
+6. Networking
+7. Docker Compose
+
+These topics build directly on the Docker basics you've learned today.

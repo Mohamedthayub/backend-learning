@@ -5,3 +5,19 @@ docker images -- show the all docker images
 docker pull  hello-world -- we download image from dockerHub Server
 docker run hello-world -- we run the downloaded docker image 
 docker ps || docker ps -a -- list all running containers on your system
+docker pull nginx  -- download the nginx docker file 
+docker rmi (image name) --- remove the specific docker image 
+docker image prune ---  Remove all unused docker images
+docker container prune ---  Remove all stopped docker container
+docker rm 108f4d4b9659  ---- Remove the docker container with id
+
+docker run -it ubuntu --- it means iteractive terminal it will open inside container || Give me a terminal inside the container
+-------------------------------------------------------
+Without -it
+Run:
+docker run ubuntu
+What happens?
+Ubuntu starts and immediately exits.
+Why?
+Because there is no process running.
+-------------------------------------------------------------------

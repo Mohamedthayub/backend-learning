@@ -1,0 +1,18 @@
+Level 5: Aggregation (36–50)
+Count students.
+db.students.find().count()
+-----------------------------
+Average cgpa.
+Highest cgpa.
+Lowest cgpa.
+Average cgpa department-wise.
+Count students city-wise.
+Department with highest average cgpa.
+Find top 5 departments by student count. 
+Total students in each department.
+Average age city-wise.
+Highest cgpa in each department.
+Lowest cgpa in each department.
+Total active students.
+Total inactive students.
+Department having more than 20 students.
