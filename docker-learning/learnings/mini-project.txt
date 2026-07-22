@@ -1,0 +1,30 @@
+
+Mini Project: Run an Nginx Web Server
+Pull the image:
+docker pull nginx
+Run it:
+docker run -d --name my-nginx -p 8080:80 nginx
+Verify it's running:
+docker ps
+Open:
+http://localhost:8080
+
+You should see the Nginx welcome page.
+
+View logs:
+docker logs my-nginx
+Inspect it:
+docker inspect my-nginx
+Check running processes:
+docker top my-nginx
+Monitor resources:
+docker stats
+Stop the container:
+docker stop my-nginx
+Start it again:
+docker start my-nginx
+Remove it:
+docker stop my-nginx
+docker rm my-nginx
+Remove the image:
+docker rmi nginx

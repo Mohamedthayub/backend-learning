@@ -21,6 +21,7 @@ Ubuntu starts and immediately exits.
 Why?
 Because there is no process running.
 -------------------------------------------------------------------
+to run the docker container in interactive shell mode 
 
 docker run -it node   |
 docker run -it ubuntu | ----  we are the container  in interactive mode.when we enter this command the terminal will open for this container
@@ -31,6 +32,8 @@ docker run --name my-nginx nginx -- we create the container with our name
 
 
 ---------------------------------------------------------------------------
+
+To know the information about running container
 
 docker start id ----  here we start the container  
 docker stop id  --------- we stop the docker container
