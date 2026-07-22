@@ -12,17 +12,20 @@ mongoose.connect('mongodb://127.0.0.1:27017/jvlcode')
 // const ob
 async  function createUser() {
     try{
-        // console.log(err);
         const  user = await User.create({
-            name:"Logesh",
-            age:20
+            name:"Mohamed",
+            age:10,
+            hobbies:["Sports","Programming"],
+            address:{
+                city:"Tirunelveli",
+                street:'South Thaikka Street'
+            }
         })
-        user.name = "Venkat"
         await user.save();
         console.log(user);
     }
-    catch(error){
-        console.log("Error Crating Student",error);
+    catch(e){
+        console.log(e.message);
     }
 }
 
