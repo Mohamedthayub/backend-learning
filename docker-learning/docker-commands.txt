@@ -10,8 +10,8 @@ docker rmi (image name) --- remove the specific docker image
 docker image prune ---  Remove all unused docker images
 docker container prune ---  Remove all stopped docker container
 docker rm 108f4d4b9659  ---- Remove the docker container with id
-
 docker run -it ubuntu --- it means iteractive terminal it will open inside container || Give me a terminal inside the container
+docker  container prune  -- remove the stopped the Container
 -------------------------------------------------------
 Without -it
 Run:
@@ -21,3 +21,20 @@ Ubuntu starts and immediately exits.
 Why?
 Because there is no process running.
 -------------------------------------------------------------------
+
+docker run -it node   |
+docker run -it ubuntu | ----  we are the container  in interactive mode.when we enter this command the terminal will open for this container
+docker run -it nginx  |
+
+docker run --name my-nginx nginx -- we create the container with our name
+
+
+
+---------------------------------------------------------------------------
+
+docker start id ----  here we start the container  
+docker stop id  --------- we stop the docker container
+docker  stats --- we see the status of running container
+docker top --  see the log of running container 
+docker inspect a0f5b983b7d8  ---  inspect  the given container id 
+docker logs  a0f5b983b7d8 --- to see the log the running given container id  
