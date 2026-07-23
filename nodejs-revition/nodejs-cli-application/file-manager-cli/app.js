@@ -14,3 +14,4 @@ const fileName = process.argv[3];
 if(command == "add"){
     createFile(fileName);    
 }
+if()

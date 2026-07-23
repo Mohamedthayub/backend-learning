@@ -9,24 +9,20 @@ mongoose.connect('mongodb://127.0.0.1:27017/jvlcode')
     console.log("Error",error);
 });
 
-// const ob
+
 async  function createUser() {
-    
     try{
-        const  user = await User.create({
-            name:"Vajiha uvva",
-            age:10,
-            email:'thayub@gmail.com',
-            hobbies:["playing"],
-            address:{
-                city:"Tirunelveli",
-                street:'South Thaikka Street'
-            }
-        })
-        await user.save();
+        const user = await User.where('name').gt(9)
         console.log(user);
     }
     catch(e){
         console.log(e.message);
     }
 }
+
+createUser();
+
+/*
+User.findById('6a610b92099337bb183b7b58') -- find the user by id 
+await User.where('name').equals('Mohamed') -- this method provide by mongoose
+*/
