@@ -56,7 +56,6 @@ function createDirectory(foldername){
 }
 
 function renameFile(oldfileName,newfileName){
-
     const oldfilePath = path.join(__dirname, "workspace",oldfileName);
     const newfilePath = path.join(__dirname,"workspace",newfileName);
 
@@ -93,9 +92,23 @@ function showFileInfo(filename){
         console.log("Is Directory :",stats.isDirectory());
     })
 }
-
 function showCurrDirectory(){
     console.log(process.cwd());
+}
+function searchFiles(filename){
+    const filePath = path.join(__dirname,"workspace");
+    fs.readdir(filePath,(err,files) => {
+        if(err){
+            throw err;
+        }
+        // console.log(files);
+        const filteredNames = files.filter((file) => {
+            return file.includes(filename);
+        })
+        filteredNames.forEach((file,index) => {
+            console.log(`${index + 1}. ${file}`)
+        })
+    })
 }
 const command = process.argv[2];
 const filename = process.argv[3];
@@ -129,4 +142,7 @@ if(command == "info"){
 }
 if(command == "pwd"){
     showCurrDirectory();
+}
+if(command == "search"){
+    searchFiles(filename);
 }
