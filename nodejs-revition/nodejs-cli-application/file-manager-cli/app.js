@@ -101,7 +101,6 @@ function searchFiles(filename){
         if(err){
             throw err;
         }
-        // console.log(files);
         const filteredNames = files.filter((file) => {
             return file.includes(filename);
         })
@@ -110,6 +109,29 @@ function searchFiles(filename){
         })
     })
 }
+function moveFile(filename){
+    const destination = path.join(__dirname,"./","archive",filename);
+    const oldPath = path.join(__dirname,"workspace",filename);
+    fs.rename(oldPath,destination,(err) => {
+        if(err){
+            console.log(err);
+        }
+        console.log("✓ File moved successfully.");  
+    });
+}
+
+function copyFile(filename){
+    const destination = path.join(__dirname,"./", "backup",filename);
+    const oldPath = path.join(__dirname,"workspace",filename);
+    fs.copyFile(oldPath,destination,(err) => {
+        if(err){
+            console.log(err);
+            return;
+        }
+        console.log("✓ File copied successfully.");
+    })
+}
+
 const command = process.argv[2];
 const filename = process.argv[3];
 const foldername = process.argv[3];
@@ -145,4 +167,10 @@ if(command == "pwd"){
 }
 if(command == "search"){
     searchFiles(filename);
+}
+if(command == "move"){
+    moveFile(filename);
+}
+if(command == "copy"){
+    copyFile(filename);
 }
