@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-
-
+const formateDate  = require('./utils/formatDate');
 function createFile(filename,content) {
     const filePath = path.join(__dirname, "workspace", filename);
 
@@ -46,7 +45,7 @@ function listFiles(){
 }
 
 function createDirectory(foldername){
-    const filePath = path.join(__dirname,foldername);
+    const filePath = path.join(__dirname,"workspace",foldername);
     fs.mkdir(filePath,(err) => {
         if(err){
             console.log(err);
@@ -70,6 +69,34 @@ function renameFile(oldfileName,newfileName){
     console.log("✓ File renamed successfully.");
 }
 
+function deleteDirectory(directoryname){ 
+    const folderPath = path.join(__dirname,"workspace",directoryname);
+    fs.rm(folderPath,{recursive:true},(err) => {
+        if(err){
+            throw err;
+        }
+        console.log("✓ Directory deleted successfully.");
+    })
+}
+
+function showFileInfo(filename){
+    const filePath = path.join(__dirname, "workspace", filename)
+    fs.stat(filePath,(err,stats) => {
+        if(err){
+            console.log(err);
+        }
+        console.log("Name         :",filename.trim());
+        console.log("Size         :",stats.size,"bytes");
+        console.log("Created      :",formateDate(stats.birthtime));
+        console.log("Modified     :",formateDate(stats.mtime));
+        console.log("Is File      :",stats.isFile());
+        console.log("Is Directory :",stats.isDirectory());
+    })
+}
+
+function showCurrDirectory(){
+    console.log(process.cwd());
+}
 const command = process.argv[2];
 const filename = process.argv[3];
 const foldername = process.argv[3];
@@ -93,4 +120,13 @@ if(command == "mkdir"){
 }
 if(command == "rename"){
     renameFile(filename,newFileName);
+}
+if(command == "rmdir"){
+    deleteDirectory(foldername)
+}
+if(command == "info"){
+    showFileInfo(filename);
+}
+if(command == "pwd"){
+    showCurrDirectory();
 }
