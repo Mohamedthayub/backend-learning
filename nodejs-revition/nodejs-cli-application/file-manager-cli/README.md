@@ -397,24 +397,6 @@ Displays the current working directory.
 
 ---
 
-## 14. Change Working Directory (Bonus)
-
-### Command
-
-```bash
-node app.js cd ./projects
-```
-
-### Description
-
-Changes the current working directory for the running process.
-
-### Skills Learned
-
-* `process.chdir()`
-
----
-
 # 🗂 Suggested Folder Structure
 
 ```text
