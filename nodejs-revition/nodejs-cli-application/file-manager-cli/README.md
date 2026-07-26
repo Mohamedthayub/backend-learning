@@ -397,7 +397,7 @@ Displays the current working directory.
 
 ---
 
-# 🗂 Suggested Folder Structure
+# 🗂  Folder Structure
 
 ```text
 file-manager-cli/
@@ -451,7 +451,6 @@ file-manager-cli/
 11. Search Files
 12. Directory Tree
 13. Current Working Directory
-14. Change Working Directory
 
 ---
 
