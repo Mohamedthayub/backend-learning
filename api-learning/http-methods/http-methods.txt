@@ -1,0 +1,87 @@
+HTTP METHODS 
+------------
+Get -- get method is used to get all data from  server 
+Get a specific user:
+GET /users/1
+Response:
+{
+  "id":1,
+  "name":"Thayub",
+  "email":"thayub@gmail.com"
+}
+----------------------------------------------------------
+Post -- create a new resources in the server 
+2. POST Method
+Purpose:
+Used to create new data.
+Example:
+Create a new user.
+Request:
+POST /users
+
+Body:
+{
+ "name":"Thayub",
+ "email":"thayub@gmail.com",
+ "password":"123456"
+}
+------------------------------------------------------
+Put  -- modify the entire data in the server
+3. PUT Method
+Purpose:
+
+Used to replace the entire resource.
+
+PUT means:
+
+"Replace this object completely."
+Example existing user:
+Database:
+{
+"id":1,
+"name":"Thayub",
+"email":"old@gmail.com",
+"age":22
+}
+-----------------------------------------------------
+Patch --  change the partial data in the server 
+4. PATCH Method
+Purpose:
+
+Used to partially update data.
+
+Only update the fields that changed.
+
+Example:
+
+Current user:
+
+{
+"id":1,
+"name":"Thayub",
+"email":"old@gmail.com",
+"age":22
+}
+
+You only want to change email.
+----------------------------------------------
+Delete -- delete the data from the server
+
+5.DELETE Method
+Purpose:
+Used to remove a resource.
+Example:
+Delete user:
+DELETE /users/1
+Server removes:
+{
+"id":1,
+"name":"Thayub"
+}
+Response:
+{
+"message":"User deleted successfully"
+}
+
+this is the five http methods we mostly use in api 
+-------------------------------------------------------
