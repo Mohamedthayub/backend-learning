@@ -13,46 +13,67 @@ const moveFile = require('./commands/moveCommand');
 const renameFile = require('./commands/renameCommand');
 const createDirectory = require('./commands/mkdirCommand');
 const removeDirectory  = require('./commands/rmdirCommand');
-
+const {validateCreateCommand,validateReadFile,validateFileRename}  = require("./utils/validator");
 const command = process.argv[2];
 const filename = process.argv[3];
 const foldername = process.argv[3];
 const newFileName = process.argv[4]
 const content = process.argv[4];
 
+
 if(command == "create"){
-    createFile(filename,content);    
+    if(validateCreateCommand(filename,content)){
+        createFile(filename,content);    
+    }
 }
 if(command == "read"){
-    readFile(filename);   
+    if(validateReadFile(filename)){
+        readFile(filename);
+    }
 }
 if(command == "delete"){
-    deleteFile(filename);
+    if(validateReadFile(filename)){
+        deleteFile(filename);
+    }
 }
 if(command == "list"){
     listFiles();   
 }
 if(command == "mkdir"){
-    createDirectory(foldername);
+    if(validateReadFile(foldername)){
+        createDirectory(foldername);
+    }
 }
 if(command == "rename"){
-    renameFile(filename,newFileName);
+    if(validateFileRename(filename,newFileName)){
+        renameFile(filename,newFileName);        
+    }
 }
 if(command == "rmdir"){
-    removeDirectory(foldername);
+    if(validateReadFile(foldername)){
+        removeDirectory(foldername);        
+    }
 }
 if(command == "info"){
-    showFileInfo(filename);
+    if(validateReadFile(filename)){
+        showFileInfo(filename);
+    }
 }
 if(command == "pwd"){
     showCurrDirectory();
 }
 if(command == "search"){
-    searchFiles(filename);
+    if(validateReadFile(filename)){
+        searchFiles(filename);
+    }
 }
 if(command == "move"){
-    moveFile(filename);
+    if(validateReadFile(filename)){
+        moveFile(filename);        
+    }
 }
 if(command == "copy"){
-    copyFile(filename);
+    if(validateReadFile(filename)){
+        copyFile(filename);
+    }
 }
