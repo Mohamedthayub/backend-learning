@@ -20,60 +20,83 @@ const foldername = process.argv[3];
 const newFileName = process.argv[4]
 const content = process.argv[4];
 
+if(!command){
+    console.log("Enter the command for file operations");
+    return;
+}
+let commands = [
+    'creaate','read','delete','mkdir','rename','rmdir','info','pwd','search','move','copy'
+]
+if (commands.includes(command)) {
 
-if(command == "create"){
-    if(validateCreateCommand(filename,content)){
-        createFile(filename,content);    
+    if (command === "create") {
+        if (validateCreateCommand(filename, content)) {
+            createFile(filename, content);
+        }
     }
-}
-if(command == "read"){
-    if(validateReadFile(filename)){
-        readFile(filename);
+
+    if (command === "read") {
+        if (validateReadFile(filename)) {
+            readFile(filename);
+        }
     }
-}
-if(command == "delete"){
-    if(validateReadFile(filename)){
-        deleteFile(filename);
+
+    if (command === "delete") {
+        if (validateReadFile(filename)) {
+            deleteFile(filename);
+        }
     }
-}
-if(command == "list"){
-    listFiles();   
-}
-if(command == "mkdir"){
-    if(validateReadFile(foldername)){
-        createDirectory(foldername);
+
+    if (command === "list") {
+        listFiles();
     }
-}
-if(command == "rename"){
-    if(validateFileRename(filename,newFileName)){
-        renameFile(filename,newFileName);        
+
+    if (command === "mkdir") {
+        if (validateReadFile(foldername)) {
+            createDirectory(foldername);
+        }
     }
-}
-if(command == "rmdir"){
-    if(validateReadFile(foldername)){
-        removeDirectory(foldername);        
+
+    if (command === "rename") {
+        if (validateFileRename(filename, newFileName)) {
+            renameFile(filename, newFileName);
+        }
     }
-}
-if(command == "info"){
-    if(validateReadFile(filename)){
-        showFileInfo(filename);
+
+    if (command === "rmdir") {
+        if (validateReadFile(foldername)) {
+            removeDirectory(foldername);
+        }
     }
-}
-if(command == "pwd"){
-    showCurrDirectory();
-}
-if(command == "search"){
-    if(validateReadFile(filename)){
-        searchFiles(filename);
+
+    if (command === "info") {
+        if (validateReadFile(filename)) {
+            showFileInfo(filename);
+        }
     }
-}
-if(command == "move"){
-    if(validateReadFile(filename)){
-        moveFile(filename);        
+
+    if (command === "pwd") {
+        showCurrDirectory();
     }
-}
-if(command == "copy"){
-    if(validateReadFile(filename)){
-        copyFile(filename);
+
+    if (command === "search") {
+        if (validateReadFile(filename)) {
+            searchFiles(filename);
+        }
     }
+
+    if (command === "move") {
+        if (validateReadFile(filename)) {
+            moveFile(filename);
+        }
+    }
+
+    if (command === "copy") {
+        if (validateReadFile(filename)) {
+            copyFile(filename);
+        }
+    }
+
+} else {
+    console.log("Invalid command");
 }
