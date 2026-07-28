@@ -10,3 +10,40 @@ Range       Meaning
 5xx  --- Server errors
 
 ---------------------------------
+
+status codes
+------------
+
+200 -- it is a success for the request 
+201 -- new resources created in the server 
+202 -- Request was received but processing is not completed yet
+204 --  Request succeeded but there is no data to return 
+
+
+client Errors status codes (4xx) 
+These happen because of problems in the clients request
+--------------------------------
+400 - Bad request or the request is invalid 
+the server cannot understand it 
+
+401 - unauthorized  user is not authenticated 
+403 - user is authenticated but deos not have permission
+you are logged in but you cannot do this  
+404 - Not Found 
+requested resource does not exist 
+409 - Request conflicts with existing data 
+------------------------------------------------
+
+
+Server Error Status Codes (5xx)
+Unexpected error happened inside the server
+------------------------------
+
+500 -- internal server Error
+Unexpected error happened inside the server
+502 -- Bad Gateway 
+A server acting as a gateway received an invalid response from another
+server 
+503 -- server is unavailable
+server is temporarily unavailable 
+
