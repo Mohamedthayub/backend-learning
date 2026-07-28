@@ -1,0 +1,12 @@
+status code categories
+----------------------
+
+Range       Meaning
+---------------------
+1xx  --- informational
+2xx  --- Success
+3xx  --- Redirection
+4xx  --- Client errors
+5xx  --- Server errors
+
+---------------------------------
