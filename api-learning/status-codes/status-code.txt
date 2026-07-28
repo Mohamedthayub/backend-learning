@@ -25,11 +25,10 @@ These happen because of problems in the clients request
 --------------------------------
 400 - Bad request or the request is invalid 
 the server cannot understand it 
-
 401 - unauthorized  user is not authenticated 
 403 - user is authenticated but deos not have permission
-you are logged in but you cannot do this  
-404 - Not Found 
+you are lin but you cannot do this  
+404 - Not Found ogged 
 requested resource does not exist 
 409 - Request conflicts with existing data 
 ------------------------------------------------
@@ -46,4 +45,3 @@ A server acting as a gateway received an invalid response from another
 server 
 503 -- server is unavailable
 server is temporarily unavailable 
-
