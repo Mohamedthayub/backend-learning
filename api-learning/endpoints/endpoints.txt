@@ -28,9 +28,6 @@ Here it is as a writing block:
 
 200 OK
 
-Today 9:56 PM
-explain these concepts  with best examples 3. REST API Conventions
-
 Learn how to design clean endpoints.
 
 Good examples:
