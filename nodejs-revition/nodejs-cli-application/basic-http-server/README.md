@@ -95,7 +95,7 @@ Welcome to Basic HTTP Server
 
 ## 3. About Route
 
-### Route
+### Routes21`
 
 ```http
 GET /about
@@ -181,6 +181,8 @@ GET /users
 Return a list of users.
 
 ### Response
+    }
+]
 
 ```json
 [
@@ -191,8 +193,6 @@ Return a list of users.
     {
         "id":2,
         "name":"Bob"
-    }
-]
 ```
 
 ### Skills Learned
