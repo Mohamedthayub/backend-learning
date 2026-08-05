@@ -1,0 +1,21 @@
+level - 1
+
+
+Exercise 1
+Create a collection named:
+employees
+---------------------------------------------------------------------------------
+Exercise 2
+Insert one employee document.
+Fields:
+name
+age
+department
+salary
+city
+db.employees.insertOne({name:"Thayub",age:20,department:'CSE',salary:10000,city:'Tirunelveli'})
+--------------------------------------------------------------------------------------------
+Insert 10 employee documents with different values.
+
+ db.employees.insertMany([ { name: "Arjun", age: 25, department: "HR", salary: 30000, city: "Chennai" }, { name: "Priya", age: 28, department: "IT", salary: 60000, city: "Bangalore" }, { name: "Rahul", age: 35, department: "Sales", salary: 45000, city: "Hyderabad" }, { name: "Sneha", age: 24, department: "Marketing", salary: 40000, city: "Chennai" }, { name: "Karthik", age: 31, department: "Finance", salary: 70000, city: "Coimbatore" }, { name: "Meena", age: 29, department: "IT", salary: 65000, city: "Madurai" }, { name: "David", age: 40, department: "Operations", salary: 80000, city: "Kochi" }, { name: "Anjali", age: 26, department: "HR", salary: 35000, city: "Ahmedabad" }, { name: "Vikram", age: 33, department: "Sales", salary: 55000, city: "Pune" }, { name: "Aisha", age: 27, department: "Finance", salary: 68000, city: "Mumbai" } ])
+-------------------------------------------------------------------------------------------------------

@@ -1,0 +1,61 @@
+Level 2 – Read Operations
+Exercise 4
+
+Display all employees.
+db.employees.find()
+Exercise 5
+
+Display only employee names.
+db.employees.find({},{_id:0,name:1})
+
+Exercise 6
+
+Display only name and department.
+db.employees.find({},{_id:0,name:1,department:1})
+
+Exercise 7
+
+Find employees working in the IT department.
+db.employees.find({department:'IT'})
+Exercise 8
+
+Find employees living in Chennai.
+db.employees.find({city:'Chennai'})
+
+Exercise 9
+
+Find employees older than 30.
+ db.employees.find({age: {$gt:30}})
+Exercise 10
+
+Find employees whose salary is greater than 60000.
+db.employees.find({salary: {$gt:60000}})
+
+Exercise 11
+
+Find employees aged between 25 and 35.
+db.employees.find({age:{$gt:25 , $lt:35}})
+
+Exercise 12
+
+Find employees from Chennai or Bangalore.
+db.employees.find({$or:[{city:'Chennai'},{city:'Bangalore'}]})
+
+Exercise 13
+
+Find employees not working in HR.
+db.employees.find({department:{$not:{$eq:'HR'}}})
+
+Exercise 14
+
+Find employees whose name starts with "A".
+db.employees.find({name:{$regex:'^A'}})
+
+Exercise 15
+
+Find employees whose name ends with "n".
+db.employees.find({name:{$regex:'n$'}})
+Exercise 16
+
+Find employees whose name contains "ar".
+db.employees.find({name:{$regex:'ar'}})
