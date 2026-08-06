@@ -1,0 +1,18 @@
+Level 7 – Logical Operators
+Exercise 36
+
+Find employees working in IT and earning more than 60000.
+db.employees.find({$and:[{department:'IT'},{salary:{$gt:60000}}]})
+Exercise 37
+
+Find employees from Chennai or Bangalore.
+db.employees.find({$or:[{city:'Chennai'},{city:'Bangalore'}]})
+Exercise 38
+
+Find employees not in Sales.
+
+db.employees.find({department:{$not:{$eq:'Sales'}}})
+Exercise 39
+
+Find employees older than 25 and younger than 35.
+ db.employees.find({$and:[{age:{$gt:25,$lt:35}}]})

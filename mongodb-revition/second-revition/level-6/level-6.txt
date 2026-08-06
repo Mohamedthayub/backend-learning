@@ -1,23 +1,27 @@
 Exercise 30
 
 Find employees whose salary is greater than 50000.
+db.employees.find({salary:{$gt:50000}})
 
 Exercise 31
 
 Find employees whose salary is less than 40000.
-
+ db.employees.find({salary:{$lt:40000}})
 Exercise 32
 
 Find employees whose age is greater than or equal to 30.
-
+db.employees.find({age:{$gte:30}})
 Exercise 33
 
 Find employees whose age is not equal to 25.
 
+db.employees.find({age:{$ne:25}})
 Exercise 34
 
 Find employees whose department is either IT or HR.
+db.employees.find({$or:[{departmen:'IT'},{department:'HR'}]})
 
 Exercise 35
 
 Find employees whose city is not Chennai
+db.employees.find({city:{$ne:'Chennai'}})
