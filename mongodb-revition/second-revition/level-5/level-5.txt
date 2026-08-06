@@ -1,0 +1,16 @@
+Level 5 – Delete Operations
+Exercise 27
+
+Delete one employee.
+db.employees.deleteOne({name:'Aisha'})
+Exercise 28
+
+Delete all employees from HR.
+db.employees.deleteMany({},{department:'HR'})
+
+
+Exercise 29
+
+Delete employees older than 45.
+db.employees.deleteMany({age:{$gt:45}})
+

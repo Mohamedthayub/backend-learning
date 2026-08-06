@@ -1,0 +1,20 @@
+Level 3 – Sorting & Limiting
+Exercise 17
+
+Sort employees by salary (ascending).
+db.employees.find().sort({salary:1})
+
+Exercise 18
+
+Sort employees by salary (descending).
+db.employees.find().sort({salary:-1})
+
+Exercise 19
+
+Display the top 5 highest-paid employees.
+db.employees.find().sort({salary:-1}).limit(5)
+
+Exercise 20
+
+Skip the first 3 employees and display the rest.
+db.employees.find().skip(3)

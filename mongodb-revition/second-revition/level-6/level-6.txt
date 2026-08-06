@@ -1,0 +1,23 @@
+Exercise 30
+
+Find employees whose salary is greater than 50000.
+
+Exercise 31
+
+Find employees whose salary is less than 40000.
+
+Exercise 32
+
+Find employees whose age is greater than or equal to 30.
+
+Exercise 33
+
+Find employees whose age is not equal to 25.
+
+Exercise 34
+
+Find employees whose department is either IT or HR.
+
+Exercise 35
+
+Find employees whose city is not Chennai

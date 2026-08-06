@@ -54,7 +54,7 @@ db.employees.find({name:{$regex:'^A'}})
 Exercise 15
 
 Find employees whose name ends with "n".
-db.employees.find({name:{$regex:'n$'}})
+db.employees.find({name:{$ :'n$'}})
 Exercise 16
 
 Find employees whose name contains "ar".

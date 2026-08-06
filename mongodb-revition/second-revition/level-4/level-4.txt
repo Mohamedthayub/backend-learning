@@ -1,0 +1,29 @@
+Level 4 – Update Operations
+Exercise 21
+
+Update one employee's city.
+db.employees.updateOne({name:'Aisha'},{$set:{city:'TEN'}})
+
+Exercise 22
+
+Increase one employee's salary.
+db.employees.updateOne({name:'Aisha'},{$inc:{salary:2000}})
+
+Exercise 23
+
+Increase every employee's salary by 5000.
+db.employees.updateMany({},{$inc:{salary:5000}})
+
+Exercise 24
+
+Rename the department "Sales" to "Marketing".
+db.employees.updateOne({name:'Vikram'},{$set:{'Sales':'Marketing'}})
+Exercise 25
+
+Remove the city field from one employee.
+db.employees.updateOne({name:'Aisha'},{$unset:{city:''}})
+
+Exercise 26
+
+Add an email field to every employee
+db.employees.updateMany({},{$set:{email:''}})
