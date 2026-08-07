@@ -1,33 +1,12 @@
-// const http = require('http');
+const express = require('express');
+const app = express();
+const db = require('./db.js');
+const userRoutes  = require('./routes/user.js');
 
-// const server = http.createServer((req,res) => {
-//     if(req.url == '/'){
-//         res.writeHead(404,{'content-type':'application/json'});
-//         res.end(`{name:'Thayub'}`);
-//     }
-//     if
-// });
+app.use(express.json());
+app.use('/api/users',userRoutes);
 
-// server.listen(5000, ()=>{
-//     console.log("server is listening in port 5000");
-// })
 
-const http = require('http');
-
-const server = http.createServer((req,res) => {
-    if(req.url == "/"){
-        res.writeHead(200,{'content-type':'text/plain'});
-        res.end("This is Get Url");
-    } 
-    else if (req.url =='/about'){
-        res.writeHead(200,{'content-type':'text/plain'});
-        res.end("This is About url");
-    }
-    else{
-        res.writeHead(404,{'content-type':'text/plain'});
-        res.end("Page Not Found");
-    }
-})
-server.listen(3000,() => {
-    console.log("Server is listening on port 3000");
+app.listen(3000,() => {
+    console.log("the server is listening: http://localhost:3000");
 })

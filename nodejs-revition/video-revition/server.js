@@ -9,4 +9,4 @@ app.use("/api/users", userRoutes);
 
 app.listen(3000, () => {
     console.log("The Server is listening http://localhost:3000");
-})
+});
