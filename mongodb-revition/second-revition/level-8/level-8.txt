@@ -1,0 +1,28 @@
+Level 8 – Array Fields
+
+Add a new field:
+
+skills
+
+Example:
+
+["JavaScript","Node.js","MongoDB"]
+Exercise 40
+
+Find employees who know MongoDB.
+
+Exercise 41
+
+Find employees having JavaScript and Express.
+
+Exercise 42
+
+Add React to an employee's skills.
+
+Exercise 43
+
+Remove HTML from an employee's skills.
+
+Exercise 44
+
+Count employees having Node.js.

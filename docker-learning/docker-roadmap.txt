@@ -1,0 +1,413 @@
+# Complete Docker Learning Roadmap for Backend Developers
+
+## Goal
+
+By the end of this roadmap, you should be able to:
+
+* Dockerize any Node.js application.
+* Run databases inside Docker.
+* Build multi-container applications with Docker Compose.
+* Debug container issues.
+* Deploy Dockerized applications to a server.
+* Answer common Docker interview questions confidently.
+
+---
+
+# Module 1: Docker Fundamentals (Completed)
+
+## Learn
+
+* What is Docker?
+* Why Docker was created
+* Problems Docker solves
+* Virtual Machines vs Containers
+* Docker Architecture
+* Docker Engine
+* Docker Client
+* Docker Daemon
+* Docker Hub
+* Docker Images
+* Docker Containers
+
+### Outcome
+
+You understand **why** Docker exists and how it works internally.
+
+---
+
+# Module 2: Running Containers
+
+This is your first hands-on module.
+
+## Learn
+
+* Pull images
+* Run containers
+* Stop containers
+* Start containers
+* Restart containers
+* Remove containers
+* Remove images
+* List containers
+* List images
+
+## Commands
+
+```bash
+docker pull
+docker run
+docker ps
+docker ps -a
+docker images
+docker stop
+docker start
+docker restart
+docker rm
+docker rmi
+```
+
+## s
+
+Run and explore these images:
+
+* ubuntu
+* nginx
+* node
+* mongo
+* redis
+
+### Mini Project
+
+Run an Nginx web server inside a container and access it from your browser.
+
+### Outcome
+
+You can confidently create, manage, and remove Docker containers.
+
+---
+
+# Module 3: Working Inside Containers
+
+## Learn
+
+* Interactive containers
+* Executing commands
+* Viewing logs
+* Inspecting containers
+* Monitoring resource usage
+
+## Commands
+
+```bash
+docker exec
+docker logs
+docker inspect
+docker stats
+docker top
+```
+
+## Practice
+
+* Open a shell inside an Ubuntu container.
+* Read logs from an Nginx container.
+* Inspect a MongoDB container.
+* Monitor CPU and memory usage.
+
+### Outcome
+
+You can troubleshoot and interact with running containers.
+
+---
+
+# Module 4: Docker Images
+
+## Learn
+
+* What an image contains
+* Image layers
+* Tags
+* Latest vs versioned tags
+* Image caching
+
+## Commands
+
+```bash
+docker pull
+docker image ls
+docker history
+docker tag
+docker push
+```
+
+## Practice
+
+* Download different versions of Node.js.
+* Compare image sizes.
+* Tag an image with your own version.
+
+### Outcome
+
+You understand how Docker images are built, stored, and shared.
+
+---
+
+# Module 5: Dockerfile
+
+## Learn
+
+* FROM
+* WORKDIR
+* COPY
+* RUN
+* CMD
+* ENTRYPOINT
+* EXPOSE
+* ENV
+* ARG
+* LABEL
+* USER
+* .dockerignore
+
+## Practice
+
+Dockerize:
+
+* Hello World Node.js app
+* Express API
+* Notes API
+
+### Outcome
+
+You can build your own Docker images instead of relying on existing ones.
+
+---
+
+# Module 6: Volumes
+
+## Learn
+
+* Why container data disappears
+* Named volumes
+* Bind mounts
+* Anonymous volumes
+
+## Practice
+
+* Store MongoDB data in a volume.
+* Mount your project directory into a container.
+* Persist uploaded files.
+
+### Outcome
+
+You understand persistent storage in Docker.
+
+---
+
+# Module 7: Networking
+
+## Learn
+
+* Bridge network
+* Host network
+* None network
+* Custom networks
+* DNS between containers
+* Port mapping
+
+## Practice
+
+* Connect a Node.js container to a MongoDB container.
+* Create a custom network.
+* Communicate between multiple containers.
+
+### Outcome
+
+You understand how containers communicate securely.
+
+---
+
+# Module 8: Docker Compose
+
+## Learn
+
+* compose.yaml
+* Services
+* Networks
+* Volumes
+* Environment variables
+* Restart policies
+* Dependencies
+
+## Practice
+
+Run together:
+
+* Node.js
+* MongoDB
+* Redis
+
+using:
+
+```bash
+docker compose up
+```
+
+### Outcome
+
+You can manage complete multi-container applications.
+
+---
+
+# Module 9: Dockerizing Real Projects
+
+Dockerize these projects:
+
+1. Hello World Express API
+2. Notes API
+3. Authentication API
+4. Blog API
+5. URL Shortener API
+
+Each project should include:
+
+* Dockerfile
+* .dockerignore
+* compose.yaml
+* Environment variables
+* Persistent database storage
+
+### Outcome
+
+You can package real backend applications for development and deployment.
+
+---
+
+# Module 10: Production Docker
+
+## Learn
+
+* Multi-stage builds
+* Alpine images
+* Image optimization
+* Non-root users
+* Health checks
+* Logging
+* Secrets
+* Resource limits
+
+### Outcome
+
+You can create secure, efficient, production-ready Docker images.
+
+---
+
+# Module 11: Docker Hub
+
+## Learn
+
+* Create a Docker Hub account
+* Log in
+* Push images
+* Pull your own images
+* Version images with tags
+
+### Outcome
+
+You can publish and share your Docker images.
+
+---
+
+# Module 12: Deployment
+
+Deploy your Dockerized applications on a Linux server.
+
+## Learn
+
+* Running containers in production
+* Updating containers
+* Managing environment variables
+* Basic deployment workflow
+
+### Outcome
+
+You can deploy backend applications using Docker.
+
+---
+
+# Module 13: Best Practices
+
+Learn how professionals organize Docker projects.
+
+Topics include:
+
+* Small images
+* Layer caching
+* Multi-stage builds
+* Security
+* Naming conventions
+* Image versioning
+* Efficient Dockerfiles
+* Container lifecycle management
+
+---
+
+# Module 14: Interview Preparation
+
+Be prepared to answer questions such as:
+
+* What is Docker?
+* Why do we use Docker?
+* Image vs Container
+* Dockerfile vs Image
+* CMD vs ENTRYPOINT
+* COPY vs ADD
+* Volumes vs Bind Mounts
+* Bridge vs Host Network
+* Docker Compose
+* Multi-stage builds
+* Docker architecture
+* How `docker run` works internally
+* Common Docker commands
+*
+
+---
+
+# Final Portfolio Projects
+
+Build these in order:
+
+1. Dockerized Express API
+2. Dockerized Notes API
+3. Dockerized Authentication APIExpress + MongoDB with Docker Compose
+4. Express + MongoDB + Redis with Docker Compose
+5. Full MERN application with Docker Compose
+
+These projects demonstrate practical Docker skills to employers.
+
+---
+
+# Suggested Timeline (2–3 Hours Per Day)
+
+| Week   | Focus                                                                                    |
+| ------ | ---------------------------------------------------------------------------------------- |
+| Week 1 | Modules 1–3: Fundamentals, Containers, Container Interaction                             |
+| Week 2 | Modules 4–6: Images, Dockerfiles, Volumes                                                |
+| Week 3 | Modules 7–9: Networking, Docker Compose, Real Projects                                   |
+| Week 4 | Modules 10–14: Production, Docker Hub, Deployment, Best Practices, Interview Preparation |
+
+---
+
+# Recommended Learning Approach
+
+For every topic, follow this sequence:
+
+1. Learn the concept.
+2. Understand why it exists.
+3. Study a real-world analogy.
+4. Use the related Docker commands.
+5. Complete a small hands-on exercise.
+6. Build a mini project.
+7. Review common interview questions.
+8. Repeat until you can explain and demonstrate the topic without notes.
+
+The goal is not just to remember Docker commands, but to understand how Docker fits into real software development and deployment workflows.

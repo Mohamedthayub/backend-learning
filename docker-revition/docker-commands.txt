@@ -1,0 +1,9 @@
+docker pull (image-name) -- download the image from dockerHub
+docker run  - run the docker image 
+docker rm - remove the container with id 
+docker rmi - remove the docker  image
+docker rmi -f - force to remove the docker image 
+docker stop - stop the container 
+docker ps - view running container 
+docker ps -a -- Shows all containers, including stopped ones.
+docker restart - restart the docker container 

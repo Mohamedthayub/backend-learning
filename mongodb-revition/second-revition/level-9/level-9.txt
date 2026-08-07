@@ -1,0 +1,19 @@
+Level 9 – Embedded Documents
+
+Create an address object.
+
+address
+   city
+   state
+   pincode
+Exercise 45
+
+Find employees living in Tamil Nadu.
+
+Exercise 46
+
+Find employees whose pincode starts with 6.
+
+Exercise 47
+
+Update an employee's city inside the address object.
