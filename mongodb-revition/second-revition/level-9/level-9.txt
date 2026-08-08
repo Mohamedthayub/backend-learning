@@ -7,6 +7,7 @@ address
    state
    pincode
 Exercise 45
+db.employees.updateOne({name:'Aisha'},{$set:{address:{city:'Tirunelveli',state:'Tamil Nadu',pincode:627005}}})
 
 Find employees living in Tamil Nadu.
 

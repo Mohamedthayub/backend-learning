@@ -4,25 +4,33 @@ Add a new field:
 
 skills
 
+
 Example:
 
 ["JavaScript","Node.js","MongoDB"]
+ db.employees.updateMany({},{$set:{skills:["JavaScript","Node.js","MongoDB"]
+| }})
 Exercise 40
 
 Find employees who know MongoDB.
+db.employees.find({skills:'MongoDB'})
+
 
 Exercise 41
 
 Find employees having JavaScript and Express.
-
+ db.employees.find({skills:{$in:['Javascript','Express']}})
 Exercise 42
 
 Add React to an employee's skills.
+db.employees.updateMany({},{$push:{skills:'React'}})
 
 Exercise 43
 
 Remove HTML from an employee's skills.
+db.employees.updateMany({},{$pull:{skills:'HTML'}})
 
 Exercise 44
 
 Count employees having Node.js.
+db.employees.find({skills:{$in:['Node.js']}}).count()
