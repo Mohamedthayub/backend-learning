@@ -7,11 +7,11 @@ exports.createOrder = async (req,res,next) => {
     const status = 'pending';
     const order = await orderModel.create({cartItems,amount,status});
     
-  for (const item of cartItems) {
-      const product = await productModel.findById(item.product._id.$oid);
-      product.stock = product.stock - item.qty;
-      await product.save();
-  }
+    for (const item of cartItems) {
+        const product = await productModel.findById(item.product._id.$oid);
+        product.stock = product.stock - item.qty;
+        await product.save();
+    }
       
     res.json({
         success:true,

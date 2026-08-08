@@ -35,6 +35,11 @@ Good examples:
 GET    /products
 GET    /products/:id
 POST   /products
+/getProducts
+/createProduct
+/deleteProduct
+
+Before you move to authentication or advanced Express topics, it's important to understand
 PUT    /products/:id
 PATCH  /products/:id
 DELETE /products/:id

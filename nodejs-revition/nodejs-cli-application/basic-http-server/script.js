@@ -31,6 +31,7 @@ const server = http.createServer((req,res) =>{
     res.writeHead(200,{'content-type':'application/json'});
     res.end(JSON.stringify(users));
     }
+    // else if (req.url == "")
     else if(req.url.startsWith("/users/")){
     const users  = [
     {

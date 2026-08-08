@@ -3,6 +3,7 @@ const productModel = require('../Models/productModel');
 // get all products /api/v1/products
 exports.getProducts = async  (req,res,next) => {
     const products = await  productModel.find({});
+    console.log(products);
     res.json({
         success:true,
         products
