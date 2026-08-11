@@ -1,69 +1,99 @@
 const userModel = require('../Models/User');
 
+//  CREATE USER 
 exports.createUser = async (req,res,next) => {
-    const user = await  req.body;
-    const saved = await userModel.create(user);
-    res.json({
-        success:true,
-        saved
-    });
+    try{
+        const  user = await userModel.create(req.body);
+        
+        res.status(201).json({
+            success:true,
+            user
+        });
+    }
+    catch(error){
+        next(error);
+    }
 }
 
+// GET SINGLE USER;
 exports.getUsers = async (req,res,next) => {
-    const users  = await userModel.find();
-    console.log(users);
-    res.json({
-        success:true,
-        users
-    });
+    try{
+        const users =  await userModel.find();
+        
+        res.status(200).json({
+            success:true,
+            users
+        });
+    }
+    catch(error){
+        next(error);
+    }
 }
 
 exports.getUserById  = async (req,res,next) => {
     try{
-        const users = await userModel.find()
-        const singleUser = await userModel.findById(req.params.id);
-        console.log(users);
-        res.json({
+        const  user = await  userModel.findById((req.params.id));
+        if(!user){
+            return  res.status(404).json({
+                success:false,
+                message:"User not found"
+            });
+        }
+        res.status(200).json({
             success:true,
-            singleUser 
-        });
+            user
+        })
     }
     catch(error){
-        res.json({
-            success:false,
-            message:error.message
-        });
+        next(error);
     }
 }
 
 exports.updateUser = async (req,res,next) => {
     try{
-        const updatedUser = await  userModel.findByIdAndUpdate(req.params.id,req.body,{new:true,runValidators:true});
-        res.json({
+        const{name,email,age} = use.body;
+        const  updateUser  = await userModel.findByIdAndUpdate(req.params.id , 
+            {
+                name,
+                email,
+                age
+            },
+            {
+                new:true,
+                runValidators:true
+            }
+        );
+        if(!updateUser){
+            return res.status(404).json({
+                success:false,
+                message:"User not found"
+            })
+        }
+        res.status(200).json({
             success:true,
-            updatedUser
-        });   
+            user:updateuser
+        });
     }
     catch(error){
-        res.json({
-            success:false,
-            message:error.message
-        });
+        next(error);
     }
 }
 
 exports.deleteUser =  async (req,res,next) => {
-    try{
-        await userModel.findByIdAndDelete(req.params.id);
-        res.json({
-            success:true,
-            message:"user deleted successfully"
-        });
-    }
-    catch(error){
-        res.json({
+   try{
+    const deleteUser = await  userModel.findByIdAndDelete(req.params.id);
+    if(!deleteUser){
+        return res.status(404).json({
             success:false,
-            message:error.message
+            message:"User not found"
         });
     }
+    res.status(200).json({
+        success:true,
+        message:"User deleted Sucessfully"
+    });
+   }
+   catch(error){
+    next(error);
+   }
 }
