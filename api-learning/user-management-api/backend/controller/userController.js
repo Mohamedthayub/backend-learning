@@ -23,7 +23,8 @@ exports.getUsers = async (req,res,next) => {
         res.status(200).json({
             success:true,
             users
-        });
+        })
+        console.log(users);
     }
     catch(error){
         next(error);
