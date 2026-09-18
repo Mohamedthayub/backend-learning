@@ -3,9 +3,9 @@ const userModel   = require('../model/User');
 // http://localhost:4000/api/users?name=aak
 exports.getUsers = async (req, res, next) => {
     try{
-        let {name,age} = req.query;
+        let {name} = req.query;
         let filter = {};
-        if(name){
+        if(filter){
             filter.name = {
                 $regex:name,
                 $options:"i"
