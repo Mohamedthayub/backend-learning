@@ -1,14 +1,15 @@
 const userModel   = require('../model/User');
 
+// http://localhost:4000/api/users?name=aak
 exports.getUsers = async (req, res, next) => {
     try{
         let {name,age} = req.query;
         let filter = {};
         if(name){
-            filter.name = name;
-        }
-        if(age){
-            filter.age = age;
+            filter.name = {
+                $regex:name,
+                $options:"i"
+            }
         }
         const users = await userModel.find(filter);
         res.status(200).json({
