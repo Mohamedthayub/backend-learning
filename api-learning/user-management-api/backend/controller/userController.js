@@ -2,9 +2,23 @@ const userModel = require('../Models/User');
 
 //  CREATE USER 
 exports.createUser = async (req,res,next) => {
+    const {name,email,age} = req.body;
+    if(!name || !email || !age){
+        return res.json({
+            success:false,
+            message:"Missing user details"
+        })
+    }
     try{
-        const  user = await userModel.create(req.body);
-        
+        const existingUser = await userModel.findOne({email});
+        if(existingUser){
+            return res.json({
+                success:false,
+                message:"User already exist"
+            });
+        }
+        const user = await new userModel({name,email,age});
+        await  user.save();
         res.status(201).json({
             success:true,
             user
@@ -19,7 +33,13 @@ exports.createUser = async (req,res,next) => {
 exports.getUsers = async (req,res,next) => {
     try{
         const users =  await userModel.find();
-        
+        if(users.length == 0){
+
+            res.status(200).json({
+                success:false,
+                message:"users  not found"
+            })
+        }
         res.status(200).json({
             success:true,
             users
