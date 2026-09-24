@@ -5,7 +5,7 @@ const userSchema = new  mongoose.Schema({
         type:String,
         required:[true,"name is required"],
         trim:true,
-        minlength:2,
+        minlength:3,
         maxlength:50
     },
     email:{
@@ -26,5 +26,5 @@ const userSchema = new  mongoose.Schema({
     timestamps:true
 }
 );    
-const userModel = mongoose.model("User",userSchema);
+const userModel = mongoose.models.User || mongoose.model("User",userSchema);
 module.exports = userModel;
