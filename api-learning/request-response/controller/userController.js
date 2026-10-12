@@ -1,25 +1,23 @@
 const userModel   = require('../model/User');
 
-exports.getUsers = async (req, res, next) => {
+
+exports.getUsers = async (req,res,next) => {
     try{
-        const users = await userModel.find();
-        if(users){
-            res.status(200).json({
-                success:true,
-                users
-            })
-        }
-        else{
-            res.status(404).json({
-                success:false,
-                message:"Users not found" 
-            })
-        }
+        const {name,age} = req.query;
+        // const filter = {};
+
+        const users = await userModel.find({name,age});
+        // const users = await  userModel.find();
+        res.status(200).json({
+            success:true,
+            users
+        });
     }
-    catch(err){
-        next(err)
+    catch(error){
+        next(error);
     }
-};
+    
+}
 
 exports.createUser = async (req,res,next) =>{
     try{
@@ -33,6 +31,7 @@ exports.createUser = async (req,res,next) =>{
         next(err);
     }
 }
+// exports.get
 exports.getUserById = async (req,res,next) => {
     try{
         const user = await userModel.findById(req.params.id);
@@ -45,4 +44,6 @@ exports.getUserById = async (req,res,next) => {
         next(err);
     }
 }
+
+
 

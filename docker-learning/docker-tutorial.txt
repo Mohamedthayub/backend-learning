@@ -1,0 +1,5 @@
+ps full form --- process status 
+docker ps  -- it will show what container is running 
+docker ps -a  --- it will show what are the containers runned and exit
+docker build -t my-simple-image . -- this command we use to build the docker image 
+docker run  my-simple-image -- when we run the this command  it create a docker container then the output will be -> "Hello, Docker!"
