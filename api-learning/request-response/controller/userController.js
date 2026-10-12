@@ -3,11 +3,8 @@ const userModel   = require('../model/User');
 
 exports.getUsers = async (req,res,next) => {
     try{
-        const {name,age} = req.query;
-        // const filter = {};
-
-        const users = await userModel.find({name,age});
-        // const users = await  userModel.find();
+        const {sort} = req.query;
+        const users = await userModel.find().sort(sort);
         res.status(200).json({
             success:true,
             users
@@ -18,6 +15,8 @@ exports.getUsers = async (req,res,next) => {
     }
     
 }
+// http://localhost:4000/api/users?sort=-age we sort  the age descening order
+// http://localhost:4000/api/users?sort=age we sort the age by ascending order
 
 exports.createUser = async (req,res,next) =>{
     try{
